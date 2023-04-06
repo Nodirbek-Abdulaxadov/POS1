@@ -1,0 +1,12 @@
+C:\Users\Nodirbek\Desktop\POS1\Messager\bin\Debug\net7.0\Messager.deps.json
+C:\Users\Nodirbek\Desktop\POS1\Messager\bin\Debug\net7.0\Messager.dll
+C:\Users\Nodirbek\Desktop\POS1\Messager\bin\Debug\net7.0\Messager.pdb
+C:\Users\Nodirbek\Desktop\POS1\Messager\obj\Debug\net7.0\Messager.csproj.AssemblyReference.cache
+C:\Users\Nodirbek\Desktop\POS1\Messager\obj\Debug\net7.0\Messager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nodirbek\Desktop\POS1\Messager\obj\Debug\net7.0\Messager.AssemblyInfoInputs.cache
+C:\Users\Nodirbek\Desktop\POS1\Messager\obj\Debug\net7.0\Messager.AssemblyInfo.cs
+C:\Users\Nodirbek\Desktop\POS1\Messager\obj\Debug\net7.0\Messager.csproj.CoreCompileInputs.cache
+C:\Users\Nodirbek\Desktop\POS1\Messager\obj\Debug\net7.0\Messager.dll
+C:\Users\Nodirbek\Desktop\POS1\Messager\obj\Debug\net7.0\refint\Messager.dll
+C:\Users\Nodirbek\Desktop\POS1\Messager\obj\Debug\net7.0\Messager.pdb
+C:\Users\Nodirbek\Desktop\POS1\Messager\obj\Debug\net7.0\ref\Messager.dll
