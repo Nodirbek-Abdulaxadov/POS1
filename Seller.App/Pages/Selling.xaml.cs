@@ -253,7 +253,7 @@ namespace Seller.App.Pages
                     receipt.Discount = decimal.Parse(chegirma.Text.Replace(" ", ""));
                     receipt.PaidCard = decimal.Parse(plastik.Text.Replace(" ", ""));
                     receipt.PaidCash = decimal.Parse(naqd.Text.Replace(" ", ""));
-                    receipt.CreatedDate = DateTime.Now.ToString();
+                    receipt.CreatedDate = DateTime.Now;
                     receipt.TotalPrice = jami;
                     receipt.HasLoan = false;
                     receipt.Transactions.AddRange(vm.Transactions.ToList());

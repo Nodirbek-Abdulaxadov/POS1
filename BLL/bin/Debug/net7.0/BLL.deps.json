@@ -11,7 +11,8 @@
           "DataLayer": "1.0.0",
           "Messager": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.2",
-          "Newtonsoft.Json": "13.0.3"
+          "Newtonsoft.Json": "13.0.3",
+          "TimeZoneConverter": "6.1.0"
         },
         "runtime": {
           "BLL.dll": {}
@@ -265,6 +266,14 @@
         }
       },
       "System.Security.Cryptography.Cng/4.5.0": {},
+      "TimeZoneConverter/6.1.0": {
+        "runtime": {
+          "lib/net6.0/TimeZoneConverter.dll": {
+            "assemblyVersion": "6.1.0.0",
+            "fileVersion": "6.1.0.0"
+          }
+        }
+      },
       "Core/1.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Identity.Stores": "7.0.2"
@@ -509,6 +518,13 @@
       "sha512": "sha512-WG3r7EyjUe9CMPFSs6bty5doUqT+q9pbI80hlNzo2SkPkZ4VTuZkGWjpp77JB8+uaL4DFPRdBsAY+DX3dBK92A==",
       "path": "system.security.cryptography.cng/4.5.0",
       "hashPath": "system.security.cryptography.cng.4.5.0.nupkg.sha512"
+    },
+    "TimeZoneConverter/6.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UGdtyKWJqXXinyvGB9X6NVoIYbTAidoZYmn3aXzxeEYC9+OL8vF36eDt1qjb6RqBkWDl4v7iE84ecI+dFhA80A==",
+      "path": "timezoneconverter/6.1.0",
+      "hashPath": "timezoneconverter.6.1.0.nupkg.sha512"
     },
     "Core/1.0.0": {
       "type": "project",

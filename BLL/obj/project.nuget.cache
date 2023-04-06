@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YYk+0cirNKTE2WTJdu7AgDwlYbLERKA3Vp+7fWq4njVyBX9Tssg3pI6BEUuYYblArBfb5/J02kRtTHAte2wb5A==",
+  "dgSpecHash": "yfaxI+6xBhhUA1C686LLtrvvUbmWO8i3+Y857kDT+H9+Zy0VRBBgggeiQ8p+0U3s3FeJGhIXPbMih/Zj+eyGyw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
@@ -33,7 +33,8 @@
     "C:\\Users\\Nodirbek\\.nuget\\packages\\npgsql\\7.0.1\\npgsql.7.0.1.nupkg.sha512",
     "C:\\Users\\Nodirbek\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.1\\npgsql.entityframeworkcore.postgresql.7.0.1.nupkg.sha512",
     "C:\\Users\\Nodirbek\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.15.1\\system.identitymodel.tokens.jwt.6.15.1.nupkg.sha512",
-    "C:\\Users\\Nodirbek\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+    "C:\\Users\\Nodirbek\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
+    "C:\\Users\\Nodirbek\\.nuget\\packages\\timezoneconverter\\6.1.0\\timezoneconverter.6.1.0.nupkg.sha512"
   ],
   "logs": []
 }

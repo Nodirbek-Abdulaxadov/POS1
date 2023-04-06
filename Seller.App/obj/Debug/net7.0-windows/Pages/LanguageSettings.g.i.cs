@@ -77,7 +77,7 @@ namespace Seller.App.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Seller.App;V1.0.0.0;component/pages/languagesettings.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Seller.App;component/pages/languagesettings.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Pages\LanguageSettings.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

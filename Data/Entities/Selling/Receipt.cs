@@ -6,7 +6,7 @@ public class Receipt : BaseEntity
 {
     [Required]
     [StringLength(30)]
-    public string CreatedDate { get; set; } = string.Empty;
+    public DateTime CreatedDate { get; set; }
     [Required]
     public decimal TotalPrice { get; set; }
     [Required]

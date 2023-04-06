@@ -146,3 +146,4 @@ C:\Users\Nodirbek\Desktop\POS1\POS_System\obj\Debug\net7.0\refint\API.dll
 C:\Users\Nodirbek\Desktop\POS1\POS_System\obj\Debug\net7.0\API.pdb
 C:\Users\Nodirbek\Desktop\POS1\POS_System\obj\Debug\net7.0\API.genruntimeconfig.cache
 C:\Users\Nodirbek\Desktop\POS1\POS_System\obj\Debug\net7.0\ref\API.dll
+C:\Users\Nodirbek\Desktop\POS1\POS_System\bin\Debug\net7.0\TimeZoneConverter.dll

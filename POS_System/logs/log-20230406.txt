@@ -238,3 +238,11 @@ User login: "+998996555744"
 User login: "+998996555744"
 2023-04-06 14:01:42.725 +05:00 [INF] 
 User login: "+998996555744"
+2023-04-06 15:23:23.456 +05:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "AspNetRoles" (
+    "Id" text NOT NULL,
+    "Name" character varying(256) NULL,
+    "NormalizedName" character varying(256) NULL,
+    "ConcurrencyStamp" text NULL,
+    CONSTRAINT "PK_AspNetRoles" PRIMARY KEY ("Id")
+);

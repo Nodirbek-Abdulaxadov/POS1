@@ -1,4 +1,5 @@
-﻿using DataLayer.Entities;
+﻿using BLL.Helpers;
+using DataLayer.Entities;
 using System.ComponentModel.DataAnnotations;
 
 namespace BLL.Dtos.WarehouseDtos;
@@ -14,7 +15,7 @@ public class AddWarehouseDto
         => new Warehouse()
         {
             Name = v.Name,
-            CreatedDate = DateTime.Now.ToString(),
+            AddedDate = LocalTime.GetUtc5Time(),
             IsDeleted = false
         };
 }

@@ -97,11 +97,11 @@ public class ProductService : IProductService
             var category = _unitOfWork.Categories.GetByIdAsync(model.Id);
             if (category.Result != null)
             {
-                model.CategoryName = category.Result.Name;
+                model.SubcategoryName = category.Result.Name;
             }
             else
             {
-                model.CategoryName = "Noma'lum";
+                model.SubcategoryName = "Noma'lum";
             }
 
             return model;
@@ -119,11 +119,11 @@ public class ProductService : IProductService
                                                        var category = _unitOfWork.Categories.GetByIdAsync(model.Id);
                                                        if (category.Result != null)
                                                        {
-                                                           model.CategoryName = category.Result.Name;
+                                                           model.SubcategoryName = category.Result.Name;
                                                        }
                                                        else
                                                        {
-                                                           model.CategoryName = "Noma'lum";
+                                                           model.SubcategoryName = "Noma'lum";
                                                        }
 
                                                        return model;
@@ -162,11 +162,11 @@ public class ProductService : IProductService
         var category = _unitOfWork.Categories.GetByIdAsync(model.Id);
         if (category.Result != null)
         {
-            model.CategoryName = category.Result.Name;
+            model.SubcategoryName = category.Result.Name;
         }
         else
         {
-            model.CategoryName = "Noma'lum";
+            model.SubcategoryName = "Noma'lum";
         }
 
         return model;
@@ -186,9 +186,8 @@ public class ProductService : IProductService
                 Id = product.Id,
                 Name = product.Name,
                 Barcode = product.Barcode,
-                Brand = product.Brand,
-                Color = product.Color,
-                Size = product.Size,
+                Description = product.Description,
+                MadeIn = product.MadeIn,
                 Price = warItem.SellingPrice,
                 AvailableCount = productItems.Sum(d => d.Quantity)
             };
@@ -214,11 +213,11 @@ public class ProductService : IProductService
                                                        var category = _unitOfWork.Categories.GetByIdAsync(model.Id);
                                                        if (category.Result != null)
                                                        {
-                                                           model.CategoryName = category.Result.Name;
+                                                           model.SubcategoryName = category.Result.Name;
                                                        }
                                                        else
                                                        {
-                                                           model.CategoryName = "Noma'lum";
+                                                           model.SubcategoryName = "Noma'lum";
                                                        }
 
                                                        return model;

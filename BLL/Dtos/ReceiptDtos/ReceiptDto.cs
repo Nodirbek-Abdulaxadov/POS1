@@ -5,7 +5,7 @@ namespace BLL.Dtos.ReceiptDtos;
 
 public class ReceiptDto : BaseDto
 {
-    public string CreatedDate { get; set; } = string.Empty;
+    public DateTime CreatedDate { get; set; }
     public decimal TotalPrice { get; set; }
     public decimal Discount { get; set; }
     public decimal PaidCash { get; set; }

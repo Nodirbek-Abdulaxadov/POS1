@@ -19,9 +19,9 @@ public static class Valide
         }
 
         return dto.Name == product.Name &&
-               dto.Color == product.Color &&
-               dto.Size == product.Size &&
-               dto.Brand == product.Brand &&
+               dto.MadeIn == product.MadeIn &&
+               dto.Description == product.Description &&
+               dto.SubcategoryId == product.SubcategoryId &&
                dto.Barcode == product.Barcode;
     }
 
@@ -40,9 +40,8 @@ public static class Valide
     public static bool IsValid(this AddProductDto dto)
         => dto != null
             && !dto.Name.IsNullOrEmpty()
-            && !dto.Color.IsNullOrEmpty()
-            && !dto.Size.IsNullOrEmpty()
-            && !dto.Brand.IsNullOrEmpty()
+            && !dto.MadeIn.IsNullOrEmpty()
+            && dto.SubcategoryId > 0
             && !dto.Barcode.IsNullOrEmpty()
             && !string.IsNullOrEmpty(dto.AdminId);
 
@@ -50,9 +49,7 @@ public static class Valide
        => dto != null
            && dto.Id > 0
            && !dto.Name.IsNullOrEmpty()
-           && !dto.Color.IsNullOrEmpty()
-           && !dto.Size.IsNullOrEmpty()
-           && !dto.Brand.IsNullOrEmpty()
+           && !dto.MadeIn.IsNullOrEmpty()
            && !dto.Barcode.IsNullOrEmpty();
 
     public static bool IsValid(this UpdateWarehouseItemDto dto)

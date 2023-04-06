@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "THPHOZO3Xk2inSZlQzMXG9Oi063RAeG8zXezEhzaAe1BKbVbcpCyF3UIPL3a5KSnyjar6iZkqeJMMLP3hOHrQg==",
+  "dgSpecHash": "nvczcwiaVBFaWiFIuLEhG+a5JkQNsNHsoUYiQYDc8MNLb7GB8rc2u3rbIBGebegA1SpSoHAnAtOJCK5z6LfKDg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\POS_System\\API.csproj",
   "expectedPackageFiles": [
@@ -63,7 +63,8 @@
     "C:\\Users\\Nodirbek\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.15.1\\system.identitymodel.tokens.jwt.6.15.1.nupkg.sha512",
     "C:\\Users\\Nodirbek\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
     "C:\\Users\\Nodirbek\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
-    "C:\\Users\\Nodirbek\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
+    "C:\\Users\\Nodirbek\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
+    "C:\\Users\\Nodirbek\\.nuget\\packages\\timezoneconverter\\6.1.0\\timezoneconverter.6.1.0.nupkg.sha512"
   ],
   "logs": []
 }
