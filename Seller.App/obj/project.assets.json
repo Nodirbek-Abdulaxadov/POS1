@@ -1833,11 +1833,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Seller.App\\Seller.App.csproj",
+      "projectUniqueName": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Seller.App\\Seller.App.csproj",
       "projectName": "Seller.App",
-      "projectPath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Seller.App\\Seller.App.csproj",
+      "projectPath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Seller.App\\Seller.App.csproj",
       "packagesPath": "C:\\Users\\Nodirbek\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Seller.App\\obj\\",
+      "outputPath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Seller.App\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1859,8 +1859,8 @@
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
           "projectReferences": {
-            "C:\\Users\\Nodirbek\\Desktop\\POS1\\BLL\\BLL.csproj": {
-              "projectPath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\BLL\\BLL.csproj"
+            "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\BLL\\BLL.csproj": {
+              "projectPath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\BLL\\BLL.csproj"
             }
           }
         }

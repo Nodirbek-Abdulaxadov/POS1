@@ -1,4 +1,5 @@
-﻿using DataLayer.Entities;
+﻿using BLL.Helpers;
+using DataLayer.Entities;
 using System.ComponentModel.DataAnnotations;
 
 namespace BLL.Dtos.CategoryDtos;
@@ -13,6 +14,8 @@ public class AddCategoryDto
         => new Category()
         {
             Name = v.Name,
-            IsDeleted = false
+            IsDeleted = false,
+            AddedDate = LocalTime.GetUtc5Time(),
+            ModifiedDate = LocalTime.GetUtc5Time()
         };
 }

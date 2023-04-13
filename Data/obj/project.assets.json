@@ -1226,11 +1226,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Data\\DataLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Data\\DataLayer.csproj",
       "projectName": "DataLayer",
-      "projectPath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Data\\DataLayer.csproj",
+      "projectPath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Data\\DataLayer.csproj",
       "packagesPath": "C:\\Users\\Nodirbek\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Data\\obj\\",
+      "outputPath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1252,8 +1252,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Nodirbek\\Desktop\\POS1\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Core\\Core.csproj"
+            "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Core\\Core.csproj"
             }
           }
         }

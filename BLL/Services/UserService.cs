@@ -45,7 +45,6 @@ public class UserService : IUserService
         User user = new()
         {
             FullName = viewModel.FullName,
-            Email = viewModel.Email,
             PhoneNumber = viewModel.PhoneNumber,
             UserName = viewModel.FullName.Replace(" ", ""),
             SecurityStamp = Guid.NewGuid().ToString(),

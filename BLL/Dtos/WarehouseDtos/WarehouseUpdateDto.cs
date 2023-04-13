@@ -8,6 +8,7 @@ public class WarehouseUpdateDto
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public DateTime AddedDate { get; set; }
+    public DateTime ModifiedDate { get; set; }
 
     public static explicit operator Warehouse(WarehouseUpdateDto v)
         => new Warehouse()

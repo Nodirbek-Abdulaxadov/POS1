@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "//zhRsDq2icQ6mxOi5+AW7KumJPA/h1A76R1tq0l4VllCAkjVrW7+9wnNanfGe+VsKDQO6xAq9lr8uA6PdNcPA==",
+  "dgSpecHash": "SXofyiPukwMnrP+irPeP/yXp5xJVonBn6k211puPhU1V+715upAO8M4ua/A3lWktgCaV3KfaoMyU+V/zDMtzfg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Messager\\Messager.csproj",
+  "projectFilePath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Messager\\Messager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nodirbek\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],

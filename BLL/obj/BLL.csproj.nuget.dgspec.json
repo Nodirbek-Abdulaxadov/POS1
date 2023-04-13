@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nodirbek\\Desktop\\POS1\\BLL\\BLL.csproj": {}
+    "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\BLL\\BLL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nodirbek\\Desktop\\POS1\\BLL\\BLL.csproj": {
+    "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nodirbek\\Desktop\\POS1\\BLL\\BLL.csproj",
+        "projectUniqueName": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\BLL\\BLL.csproj",
+        "projectPath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\BLL\\BLL.csproj",
         "packagesPath": "C:\\Users\\Nodirbek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\BLL\\obj\\",
+        "outputPath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,11 +33,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Nodirbek\\Desktop\\POS1\\Data\\DataLayer.csproj": {
-                "projectPath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Data\\DataLayer.csproj"
+              "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Data\\DataLayer.csproj": {
+                "projectPath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Data\\DataLayer.csproj"
               },
-              "C:\\Users\\Nodirbek\\Desktop\\POS1\\Messager\\Messager.csproj": {
-                "projectPath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Messager\\Messager.csproj"
+              "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Messager\\Messager.csproj": {
+                "projectPath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Messager\\Messager.csproj"
               }
             }
           }
@@ -85,14 +85,14 @@
         }
       }
     },
-    "C:\\Users\\Nodirbek\\Desktop\\POS1\\Core\\Core.csproj": {
+    "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Core\\Core.csproj",
+        "projectPath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\Nodirbek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Core\\obj\\",
+        "outputPath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -151,14 +151,14 @@
         }
       }
     },
-    "C:\\Users\\Nodirbek\\Desktop\\POS1\\Data\\DataLayer.csproj": {
+    "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Data\\DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Data\\DataLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Data\\DataLayer.csproj",
         "projectName": "DataLayer",
-        "projectPath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Data\\DataLayer.csproj",
+        "projectPath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Data\\DataLayer.csproj",
         "packagesPath": "C:\\Users\\Nodirbek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Data\\obj\\",
+        "outputPath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -180,8 +180,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Nodirbek\\Desktop\\POS1\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Core\\Core.csproj"
+              "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Core\\Core.csproj"
               }
             }
           }
@@ -235,14 +235,14 @@
         }
       }
     },
-    "C:\\Users\\Nodirbek\\Desktop\\POS1\\Messager\\Messager.csproj": {
+    "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Messager\\Messager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Messager\\Messager.csproj",
+        "projectUniqueName": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Messager\\Messager.csproj",
         "projectName": "Messager",
-        "projectPath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Messager\\Messager.csproj",
+        "projectPath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Messager\\Messager.csproj",
         "packagesPath": "C:\\Users\\Nodirbek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Messager\\obj\\",
+        "outputPath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Messager\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

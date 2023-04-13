@@ -28,6 +28,7 @@ namespace API.Configurations
             .CreateLogger();
 
             builder.Host.UseSerilog(logger);
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
             //API Services
             builder.Services.AddControllersWithViews();
@@ -55,6 +56,7 @@ namespace API.Configurations
             builder.Services.AddTransient<IUserService, UserService>();
             builder.Services.AddTransient<IReceiptService, ReceiptService>();
             builder.Services.AddTransient<ICategoryService, CategoryService>();
+            builder.Services.AddTransient<ISubcategoryService, SubcategoryService>();
 
             builder.Services.AddTransient<IMessageService, MessageService>();
 
@@ -105,9 +107,10 @@ namespace API.Configurations
                   builder =>
                   {
                       builder.WithOrigins("http://localhost:4200")
-                      .AllowAnyOrigin()
                       .AllowAnyMethod()
-                      .AllowAnyHeader();
+                      .AllowAnyHeader()
+                      .AllowCredentials()
+                      .WithExposedHeaders("X-Pagination");
                   });
             });
         }

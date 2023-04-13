@@ -76,6 +76,7 @@ public class WarehouseService : IWarehouseService
         var dtoList = (await _unitOfWork.Warehouses.GetAllAsync())
                                                    .Where(w => w.IsDeleted == false)
                                                    .Select(i => (WarehouseViewDto)i)
+                                                   .OrderBy(d => d.AddedDate)
                                                    .ToList();
 
         PagedList<WarehouseViewDto> pagedList = new (dtoList.ToList(),
@@ -139,6 +140,12 @@ public class WarehouseService : IWarehouseService
                 break;
             case ActionType.Remove:
                 {
+                    var w_items = await _unitOfWork.WarehouseItems.GetAllAsync();
+                    if (w_items.Any(w => w.WarehouseId == id))
+                    {
+                        throw new MarketException("Item cann't be delete!");
+                    }
+
                     await _unitOfWork.Warehouses.RemoveAsync(model);
                 }
                 break;

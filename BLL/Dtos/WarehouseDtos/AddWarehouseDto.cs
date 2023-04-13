@@ -16,6 +16,7 @@ public class AddWarehouseDto
         {
             Name = v.Name,
             AddedDate = LocalTime.GetUtc5Time(),
+            ModifiedDate = LocalTime.GetUtc5Time(),
             IsDeleted = false
         };
 }

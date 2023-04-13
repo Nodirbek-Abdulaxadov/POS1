@@ -11,7 +11,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class WarehouseController : ControllerBase
     {
         private readonly IWarehouseService _itemService;
@@ -22,7 +22,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<WarehouseItemDto>>> Get()
+        public async Task<ActionResult<IEnumerable<WarehouseViewDto>>> Get()
         {
             try
             {
@@ -36,17 +36,26 @@ namespace API.Controllers
         }
 
         [HttpGet("paged")]
-        public async Task<ActionResult<IEnumerable<WarehouseItemDto>>> Get(int pageSize, int pageNumber)
+        public async Task<ActionResult<IEnumerable<WarehouseViewDto>>> Get(int pageSize, int pageNumber)
         {
             try
             {
                 var list = await _itemService.GetWarehousesAsync(pageSize, pageNumber);
-                var json = JsonConvert.SerializeObject(list, Formatting.Indented,
-                new JsonSerializerSettings
+
+                var metaData = new
                 {
-                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                });
-                return Ok(json);
+                    list.TotalCount,
+                    list.PageSize,
+                    list.CurrentPage,
+                    list.HasNext,
+                    list.HasPrevious,
+                    list.TotalPages
+                };
+
+                Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
+
+
+                return Ok(list.Data);
             }
             catch (MarketException ex)
             {
@@ -59,7 +68,7 @@ namespace API.Controllers
         }
 
         [HttpGet("archived/paged")]
-        public async Task<ActionResult<IEnumerable<WarehouseItemDto>>> GetArchived(int pageSize, int pageNumber)
+        public async Task<ActionResult<IEnumerable<WarehouseViewDto>>> GetArchived(int pageSize, int pageNumber)
         {
             try
             {
@@ -82,7 +91,7 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<WarehouseItemDto>> Get(int id)
+        public async Task<ActionResult<WarehouseViewDto>> Get(int id)
         {
             try
             {
@@ -100,7 +109,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<WarehouseItemDto>> Post(AddWarehouseDto model)
+        public async Task<ActionResult<WarehouseViewDto>> Post(AddWarehouseDto model)
         {
             try
             {
@@ -114,7 +123,7 @@ namespace API.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<WarehouseItemDto>> Put(WarehouseUpdateDto model)
+        public async Task<ActionResult<WarehouseViewDto>> Put(WarehouseUpdateDto model)
         {
             try
             {
@@ -139,6 +148,10 @@ namespace API.Controllers
                 var model = await _itemService.GetByIdAsync(id);
                 await _itemService.ActionAsync(id, ActionType.Remove);
                 return Ok();
+            }
+            catch (MarketException ex)
+            {
+                return StatusCode(406, ex.Message);
             }
             catch (ArgumentNullException)
             {

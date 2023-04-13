@@ -40,12 +40,20 @@ public class CategoryController : ControllerBase
         try
         {
             var list = await _categoryService.GetCategoriesAsync(pageSize, pageNumber);
-            var json = JsonConvert.SerializeObject(list, Formatting.Indented,
-            new JsonSerializerSettings
+            var metaData = new
             {
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-            });
-            return Ok(json);
+                list.TotalCount,
+                list.PageSize,
+                list.CurrentPage,
+                list.HasNext,
+                list.HasPrevious,
+                list.TotalPages
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
+
+
+            return Ok(list.Data);
         }
         catch (MarketException ex)
         {

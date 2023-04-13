@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nvczcwiaVBFaWiFIuLEhG+a5JkQNsNHsoUYiQYDc8MNLb7GB8rc2u3rbIBGebegA1SpSoHAnAtOJCK5z6LfKDg==",
+  "dgSpecHash": "xakDJ2ZpE+X6aC3z/E+29HCohUBzmO5Dbk6NhLzt0vyN+GZkYwdtJw301vtmG5TnCMfI8uwZPmYNlt9fiXg5Iw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\POS_System\\API.csproj",
+  "projectFilePath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\POS_System\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nodirbek\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Nodirbek\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.2\\microsoft.aspnetcore.authentication.jwtbearer.7.0.2.nupkg.sha512",

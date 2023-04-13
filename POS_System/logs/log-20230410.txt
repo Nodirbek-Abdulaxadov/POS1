@@ -1,0 +1,875 @@
+2023-04-10 13:18:10.199 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 'viewModel')
+   at BLL.Services.UserService.VerifyAndGenerateTokenAsync(TokenRequstViewModel viewModel) in C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\BLL\Services\UserService.cs:line 167
+   at API.Controllers.AuthController.RefreshToken(TokenRequstViewModel viewModel) in C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\POS_System\Controllers\AuthController.cs:line 74
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-04-10 13:51:03.536 +05:00 [ERR] 
+Login failed! Incorrect phone number or password!
+2023-04-10 13:56:15.563 +05:00 [FTL] Application startup exception
+System.InvalidOperationException: The CORS protocol does not allow specifying a wildcard (any) origin and credentials at the same time. Configure the CORS policy by listing individual origins if credentials needs to be supported.
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.Build()
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsOptions.AddPolicy(String name, Action`1 configurePolicy)
+   at API.Configurations.Config.<>c.<AddServices>b__1_3(CorsOptions options) in C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\POS_System\Configurations\Config.cs:line 104
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsService..ctor(IOptions`1 options, ILoggerFactory loggerFactory)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.ConstructorInvoker.Invoke(Object obj, IntPtr* args, BindingFlags invokeAttr)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_0.<UseMiddleware>b__0(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2023-04-10 13:58:56.496 +05:00 [ERR] 
+Login failed! Incorrect phone number or password!
+2023-04-10 14:05:31.852 +05:00 [ERR] 
+Login failed! Incorrect phone number or password!
+2023-04-10 14:06:55.347 +05:00 [ERR] 
+Login failed! Incorrect phone number or password!
+2023-04-10 14:07:08.475 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:07:10.505 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.505 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.505 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.505 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.505 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.505 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.507 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.526 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.549 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.551 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.551 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.555 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.558 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.589 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.611 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.614 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.622 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.628 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.628 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.633 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.638 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.642 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.648 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:07:10.687 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.010 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:31:02.614 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.619 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.615 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.624 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.649 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.655 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.655 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.655 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.895 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.907 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.908 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.911 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.915 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.916 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.930 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.950 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.951 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.956 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.959 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.962 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.964 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.966 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.976 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.979 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.982 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.987 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.987 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.990 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.997 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:02.997 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.014 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.016 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.030 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.031 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.032 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.032 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.056 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.058 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.059 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.060 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.067 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.097 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.097 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.104 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.104 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.106 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.118 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.120 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.123 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.131 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.131 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.131 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.145 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.164 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.165 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.171 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.177 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.179 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.188 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.204 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.206 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.208 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.210 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.215 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.234 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.242 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.249 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.249 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.250 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.250 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.250 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.270 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.276 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.286 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.302 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.305 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.315 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.315 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.316 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.317 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.314 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.318 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.332 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.335 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.365 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.367 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.376 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.396 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.408 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.414 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.414 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.491 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.492 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.499 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.513 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.513 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.517 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.522 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.557 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.558 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.558 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.558 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.558 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.560 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.565 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.567 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.568 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.569 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.594 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.598 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.598 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.598 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.607 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.607 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.622 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.637 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.640 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.650 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.668 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.669 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.672 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.675 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.682 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.703 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.703 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.703 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.703 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.718 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.719 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.731 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.735 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.739 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.739 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.756 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.759 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.763 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.771 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.771 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.772 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.780 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.786 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.797 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.805 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.808 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.810 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.826 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.831 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.836 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.838 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.842 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.849 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.849 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.854 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.875 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.876 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.876 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.884 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.891 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.891 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.895 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.908 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.933 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.933 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.933 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.944 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.954 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.959 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:03.987 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.007 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.007 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.007 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.024 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.083 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.097 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.110 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.133 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.141 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.154 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.155 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.189 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.194 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.195 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.289 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.289 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.323 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.327 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.327 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.347 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.367 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.392 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.397 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.406 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.428 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.445 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.450 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.452 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.466 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.521 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.533 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:31:04.539 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:32:12.970 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:32:12.988 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:32:13.000 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:32:13.036 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:32:13.038 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:32:13.072 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:32:13.090 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:32:13.105 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:32:13.106 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:33:21.029 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:33:21.048 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:33:21.065 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:33:21.097 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:33:21.099 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:33:21.130 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:33:21.131 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:33:21.142 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:33:21.147 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:34:07.385 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:34:07.404 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:34:07.415 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:34:07.457 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:34:07.457 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:34:07.490 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:34:07.491 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:34:07.532 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:34:07.534 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:36:37.599 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:36:37.618 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:36:37.629 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:36:37.736 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:36:37.926 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:36:37.926 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:36:37.938 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:36:37.941 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:36:37.954 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:38:38.014 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:38:38.041 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:38:38.054 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:38:38.107 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:38:38.112 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:38:38.173 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:38:38.180 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:38:38.213 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:38:38.213 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:10.774 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:39:10.796 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:10.808 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:10.854 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:10.854 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:10.883 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:10.888 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:10.900 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:10.904 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:32.888 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:39:32.908 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:32.919 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:32.945 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:32.947 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:32.993 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:32.995 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:33.012 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:33.012 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:52.523 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:39:52.543 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:52.556 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:52.586 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:52.586 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:52.610 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:52.616 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:52.633 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:39:52.638 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:41:39.480 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:41:39.496 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:41:39.511 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:41:39.733 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:41:39.736 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:41:39.761 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:41:39.783 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:41:39.791 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:41:39.810 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:42:24.110 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:42:24.130 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:42:24.148 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:42:24.182 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:42:24.184 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:42:24.217 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:42:24.217 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:42:24.256 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:42:24.256 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:43:37.813 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:43:37.842 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:43:37.853 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:43:37.883 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:43:37.889 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:43:37.926 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:43:37.926 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:43:38.156 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:43:38.448 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:43:39.620 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Connections.ConnectionResetException: The client has disconnected
+ ---> System.Runtime.InteropServices.COMException (0x800704CD): An operation was attempted on a nonexistent network connection. (0x800704CD)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.IIS.Core.IO.AsyncIOOperation.GetResult(Int16 token)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContext.ReadBody()
+   at System.IO.Pipelines.Pipe.GetReadResult(ReadResult& result)
+   at System.IO.Pipelines.Pipe.ReadAsync(CancellationToken token)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContext.ReadAsync(Memory`1 memory, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.IIS.Core.HttpRequestStream.ReadAsyncInternal(Memory`1 buffer, CancellationToken cancellationToken)
+   at System.Text.Json.Serialization.ReadBufferState.ReadFromStreamAsync(Stream utf8Json, CancellationToken cancellationToken, Boolean fillBuffer)
+   at System.Text.Json.JsonSerializer.ReadFromStreamAsync[TValue](Stream utf8Json, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value, Object container)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-04-10 14:43:39.620 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Connections.ConnectionResetException: The client has disconnected
+ ---> System.Runtime.InteropServices.COMException (0x800704CD): An operation was attempted on a nonexistent network connection. (0x800704CD)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.IIS.Core.IO.AsyncIOOperation.GetResult(Int16 token)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContext.ReadBody()
+   at System.IO.Pipelines.Pipe.GetReadResult(ReadResult& result)
+   at System.IO.Pipelines.Pipe.ReadAsync(CancellationToken token)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContext.ReadAsync(Memory`1 memory, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.IIS.Core.HttpRequestStream.ReadAsyncInternal(Memory`1 buffer, CancellationToken cancellationToken)
+   at System.Text.Json.Serialization.ReadBufferState.ReadFromStreamAsync(Stream utf8Json, CancellationToken cancellationToken, Boolean fillBuffer)
+   at System.Text.Json.JsonSerializer.ReadFromStreamAsync[TValue](Stream utf8Json, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value, Object container)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-04-10 14:44:36.837 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:45:12.231 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:45:21.648 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:45:31.245 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:45:58.567 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:46:04.036 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:46:46.859 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:46:52.568 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:47:06.986 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:47:13.871 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:47:39.351 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:47:45.876 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:49:05.138 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:49:55.049 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:52:01.218 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:52:31.478 +05:00 [INF] 
+Token refreshed!
+2023-04-10 14:59:33.436 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 14:59:36.801 +05:00 [INF] 
+Token refreshed!
+2023-04-10 15:00:08.089 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 15:00:14.143 +05:00 [INF] 
+Token refreshed!
+2023-04-10 15:00:50.234 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 15:02:22.744 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 15:04:06.299 +05:00 [INF] 
+Token refreshed!
+2023-04-10 15:07:23.750 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 15:07:59.485 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 15:08:17.244 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 18:44:51.570 +05:00 [INF] 
+User login: "+998996555744"
+2023-04-10 21:51:17.165 +05:00 [ERR] Failed executing DbCommand (206ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."AddedDate", s."CategoryId", s."IsDeleted", s."ModifiedDate", s."Name"
+FROM "Subcategories" AS s
+2023-04-10 21:51:17.385 +05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'DataLayer.Context.AppDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: column s.CategoryId does not exist
+
+POSITION: 31
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|226_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column s.CategoryId does not exist
+    Position: 31
+    File: d:\pginstaller_13.auto\postgres.windows-x64\src\backend\parser\parse_relation.c
+    Line: 3514
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: column s.CategoryId does not exist
+
+POSITION: 31
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|226_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column s.CategoryId does not exist
+    Position: 31
+    File: d:\pginstaller_13.auto\postgres.windows-x64\src\backend\parser\parse_relation.c
+    Line: 3514
+    Routine: errorMissingColumn

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rUkAxFJyLyF8Zd2dw5+RsW6lis+5cyrY1H96kI8pz2+GZIbfBwgYtjRuv5Q8A0HQwLbz24NfXYAyTS9MioPmiQ==",
+  "dgSpecHash": "qtzAhr1zsBK1bSoQtk6cBBsa+mmgU6hqWqcm0GkCY7vS7RhX/yFObw0XHopWzVQI6YLM7wobskfaBUR2xVPXuw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nodirbek\\Desktop\\POS1\\Seller.App\\Seller.App.csproj",
+  "projectFilePath": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\Seller.App\\Seller.App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nodirbek\\.nuget\\packages\\esc-pos-usb-net\\1.1.3\\esc-pos-usb-net.1.1.3.nupkg.sha512",
     "C:\\Users\\Nodirbek\\.nuget\\packages\\materialdesigncolors\\2.1.1\\materialdesigncolors.2.1.1.nupkg.sha512",
