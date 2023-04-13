@@ -23,6 +23,7 @@ public class UpdateSubcategoryDto
             Name = v.Name,
             IsDeleted = false,
             AddedDate = v.AddedDate,
-            ModifiedDate = LocalTime.GetUtc5Time()
+            ModifiedDate = LocalTime.GetUtc5Time(),
+            CategoryId = v.CategoryId
         };
 }

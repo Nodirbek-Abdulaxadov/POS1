@@ -2,18 +2,22 @@
 using BLL.Helpers;
 using BLL.Interfaces;
 using BLL.Validations;
+using Core;
 using DataLayer.Entities;
 using DataLayer.Interfaces;
+using Microsoft.AspNetCore.Identity;
 
 namespace BLL.Services;
 
 public class ProductService : IProductService
 {
     private readonly IUnitOfWork _unitOfWork;
+    private readonly UserManager<User> _userManager;
 
-    public ProductService(IUnitOfWork unitOfWork)
+    public ProductService(IUnitOfWork unitOfWork, UserManager<User> userManager)
     {
         _unitOfWork = unitOfWork;
+        _userManager = userManager;
     }
 
     public async Task ActionAsync(int id, ActionType action)
@@ -94,15 +98,13 @@ public class ProductService : IProductService
         var dtoList = list.Select(x =>
         {
             var model = (ProductViewDto)x;
-            var category = _unitOfWork.Categories.GetByIdAsync(model.Id);
-            if (category.Result != null)
-            {
-                model.SubcategoryName = category.Result.Name;
-            }
-            else
-            {
-                model.SubcategoryName = "Noma'lum";
-            }
+            var subcategory = _unitOfWork.Subcategories.GetByIdAsync(model.SubcategoryId);
+            var category = _unitOfWork.Categories.GetByIdAsync(subcategory.Result.CategoryId);
+            var user = _userManager.FindByIdAsync(model.AdminId);
+
+            model.AdminFullName = user.Result == null ? "Noma'lum" : user.Result.FullName;
+            model.SubcategoryName = subcategory.Result == null? "Noma'lum" : category.Result == null ? 
+                subcategory.Result.Name : $"{category.Result.Name}\\{subcategory.Result.Name}";
 
             return model;
         });
@@ -116,15 +118,13 @@ public class ProductService : IProductService
                                                    .Select(i =>
                                                    {
                                                        var model = (ProductViewDto)i;
-                                                       var category = _unitOfWork.Categories.GetByIdAsync(model.Id);
-                                                       if (category.Result != null)
-                                                       {
-                                                           model.SubcategoryName = category.Result.Name;
-                                                       }
-                                                       else
-                                                       {
-                                                           model.SubcategoryName = "Noma'lum";
-                                                       }
+                                                       var subcategory = _unitOfWork.Subcategories.GetByIdAsync(model.SubcategoryId);
+                                                       var category = _unitOfWork.Categories.GetByIdAsync(subcategory.Result.CategoryId);
+                                                       var user = _userManager.FindByIdAsync(model.AdminId);
+
+                                                       model.AdminFullName = user.Result == null ? "Noma'lum" : user.Result.FullName;
+                                                       model.SubcategoryName = subcategory.Result == null ? "Noma'lum" : category.Result == null ?
+                                                           subcategory.Result.Name : $"{category.Result.Name}\\{subcategory.Result.Name}";
 
                                                        return model;
                                                    })
@@ -210,15 +210,13 @@ public class ProductService : IProductService
                                                    .Select(i =>
                                                    {
                                                        var model = (ProductViewDto)i;
-                                                       var category = _unitOfWork.Categories.GetByIdAsync(model.Id);
-                                                       if (category.Result != null)
-                                                       {
-                                                           model.SubcategoryName = category.Result.Name;
-                                                       }
-                                                       else
-                                                       {
-                                                           model.SubcategoryName = "Noma'lum";
-                                                       }
+                                                       var subcategory = _unitOfWork.Subcategories.GetByIdAsync(model.SubcategoryId);
+                                                       var category = _unitOfWork.Categories.GetByIdAsync(subcategory.Result.CategoryId);
+                                                       var user = _userManager.FindByIdAsync(model.AdminId);
+
+                                                       model.AdminFullName = user.Result == null ? "Noma'lum" : user.Result.FullName;
+                                                       model.SubcategoryName = subcategory.Result == null ? "Noma'lum" : category.Result == null ?
+                                                           subcategory.Result.Name : $"{category.Result.Name}\\{subcategory.Result.Name}";
 
                                                        return model;
                                                    })

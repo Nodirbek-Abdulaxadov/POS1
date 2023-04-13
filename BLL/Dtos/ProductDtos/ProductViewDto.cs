@@ -13,6 +13,7 @@ public class ProductViewDto : BaseDto
     public int SubcategoryId { get; set; }
     public string SubcategoryName { get; set; } = string.Empty;
     public string AdminId { get; set; } = string.Empty;
+    public string AdminFullName { get; set; } = string.Empty;
 
     public static explicit operator ProductViewDto(Product v)
         => new ProductViewDto()
@@ -24,6 +25,6 @@ public class ProductViewDto : BaseDto
             SubcategoryId = v.SubcategoryId,
             Barcode = v.Barcode,
             WarningCount = v.WarningCount,
-            AdminId = v.AdminId,
+            AdminId = v.AdminId
         };
 }
