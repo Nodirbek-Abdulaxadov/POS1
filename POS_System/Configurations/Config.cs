@@ -107,9 +107,9 @@ namespace API.Configurations
                   builder =>
                   {
                       builder.WithOrigins("https://admin1.1kb.uz/")
-                      .AllowAnyMethod()
-                      .AllowAnyHeader()
                       .AllowCredentials()
+                      .AllowAnyHeader()
+                      .AllowAnyMethod()
                       .WithExposedHeaders("X-Pagination");
                   });
             });
