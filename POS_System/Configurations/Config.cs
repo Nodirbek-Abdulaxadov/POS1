@@ -106,7 +106,7 @@ namespace API.Configurations
                   name: CORSOpenPolicy,
                   builder =>
                   {
-                      builder.WithOrigins("http://localhost:4200", "http://admin1.1kb.uz")
+                      builder.WithOrigins("http://admin1.1kb.uz", "http://localhost:4200")
                       .AllowAnyMethod()
                       .AllowAnyHeader()
                       .AllowCredentials()
