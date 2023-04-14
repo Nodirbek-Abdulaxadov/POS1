@@ -106,7 +106,7 @@ namespace API.Configurations
                   name: CORSOpenPolicy,
                   builder =>
                   {
-                      builder.WithOrigins("https://master.d1pguq199q4t28.amplifyapp.com")
+                      builder.WithOrigins("https://admin1.1kb.uz", "http://localhost:4200")
                             .AllowAnyHeader()
                             .AllowAnyMethod()
                             .AllowCredentials()

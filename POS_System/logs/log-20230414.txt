@@ -126,3 +126,7 @@ System.InvalidOperationException: The CORS protocol does not allow specifying a 
    at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
 2023-04-14 15:02:59.109 +05:00 [INF] 
 User login: "+998996555744"
+2023-04-14 18:41:11.690 +05:00 [ERR] 
+Login failed! Incorrect phone number or password!
+2023-04-14 18:41:15.102 +05:00 [INF] 
+User login: "+998996555744"
