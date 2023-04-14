@@ -106,10 +106,10 @@ namespace API.Configurations
                   name: CORSOpenPolicy,
                   builder =>
                   {
-                      builder.WithOrigins("https://admin1.1kb.uz/")
-                      .AllowCredentials()
-                      .AllowAnyHeader()
+                      builder.WithOrigins("http://localhost:4200", "http://admin1.1kb.uz")
                       .AllowAnyMethod()
+                      .AllowAnyHeader()
+                      .AllowCredentials()
                       .WithExposedHeaders("X-Pagination");
                   });
             });
