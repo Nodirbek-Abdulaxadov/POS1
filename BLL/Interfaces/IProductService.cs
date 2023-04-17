@@ -15,4 +15,6 @@ public interface IProductService
 
     Task<ProductViewDto> UpdateAsync(ProductUpdateDto dto);
     Task ActionAsync(int id, ActionType action);
+
+    Task<string> GenerateBarcodeAsync();
 }

@@ -10,7 +10,7 @@ public class AddProductDto
     public string MadeIn { get; set; } = string.Empty;
     public string Barcode { get; set; } = string.Empty;
     public int WarningCount { get; set; }
-
+    public int CategoryId { get; set; }
     public int SubcategoryId { get; set; }
     public string AdminId { get; set; } = string.Empty;
 
@@ -26,6 +26,7 @@ public class AddProductDto
             AddedDate = LocalTime.GetUtc5Time(),
             ModifiedDate = LocalTime.GetUtc5Time(),
             IsDeleted = false,
-            SubcategoryId = v.SubcategoryId
+            SubcategoryId = v.SubcategoryId,
+            CategoryId = v.CategoryId
         };
 }

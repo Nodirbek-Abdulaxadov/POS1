@@ -10,6 +10,8 @@ public class ProductViewDto : BaseDto
     public string Barcode { get; set; } = string.Empty;
     public int WarningCount { get; set; }
 
+    public int CategoryId { get; set; }
+    public string CategoryName { get; set; } = string.Empty;
     public int SubcategoryId { get; set; }
     public string SubcategoryName { get; set; } = string.Empty;
     public string AdminId { get; set; } = string.Empty;
@@ -23,6 +25,7 @@ public class ProductViewDto : BaseDto
             Description = v.Description,
             MadeIn = v.MadeIn,
             SubcategoryId = v.SubcategoryId,
+            CategoryId= v.CategoryId,
             Barcode = v.Barcode,
             WarningCount = v.WarningCount,
             AdminId = v.AdminId

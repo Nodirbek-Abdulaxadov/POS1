@@ -82,6 +82,20 @@ public class ProductService : IProductService
         return (ProductViewDto)model;
     }
 
+    public async Task<string> GenerateBarcodeAsync()
+    {
+        var products = await _unitOfWork.Products.GetAllAsync();
+        var barcodes = products.Select(p => p.Barcode).ToList();
+        Random random = new();
+        goBack: var randomBarcode = random.NextInt64(1000000000000, 9999999999999);
+        if (barcodes.Any(b => b == randomBarcode.ToString()))
+        {
+            goto goBack;
+        }
+
+        return randomBarcode.ToString();
+    }
+
     /// <summary>
     /// Get all products method
     /// </summary>
@@ -95,16 +109,20 @@ public class ProductService : IProductService
             throw new ArgumentNullException(nameof(list));
         }
 
+        var categories = await _unitOfWork.Categories.GetAllAsync();
+        var subcategories = await _unitOfWork.Subcategories.GetAllAsync();
+        var users = _userManager.Users.ToList();
+
         var dtoList = list.Select(x =>
         {
             var model = (ProductViewDto)x;
-            var subcategory = _unitOfWork.Subcategories.GetByIdAsync(model.SubcategoryId);
-            var category = _unitOfWork.Categories.GetByIdAsync(subcategory.Result.CategoryId);
-            var user = _userManager.FindByIdAsync(model.AdminId);
+            var subcategory = subcategories.FirstOrDefault(i => i.Id == model.SubcategoryId);
+            var category = categories.FirstOrDefault(i => i.Id == model.CategoryId);
+            var user = users.FirstOrDefault(u => u.Id == model.AdminId);
 
-            model.AdminFullName = user.Result == null ? "Noma'lum" : user.Result.FullName;
-            model.SubcategoryName = subcategory.Result == null? "Noma'lum" : category.Result == null ? 
-                subcategory.Result.Name : $"{category.Result.Name}\\{subcategory.Result.Name}";
+            model.AdminFullName = user == null ? "Noma'lum" : user.FullName;
+            model.SubcategoryName = subcategory == null ? "Noma'lum" : subcategory.Name;
+            model.CategoryName = category == null ? "Noma'lum" : category.Name;
 
             return model;
         });
@@ -113,22 +131,30 @@ public class ProductService : IProductService
 
     public async Task<PagedList<ProductViewDto>> GetArchivedProductsAsync(int pageSize, int pageNumber)
     {
-        var dtoList = (await _unitOfWork.Products.GetAllAsync())
-                                                   .Where(w => w.IsDeleted == true)
-                                                   .Select(i =>
-                                                   {
-                                                       var model = (ProductViewDto)i;
-                                                       var subcategory = _unitOfWork.Subcategories.GetByIdAsync(model.SubcategoryId);
-                                                       var category = _unitOfWork.Categories.GetByIdAsync(subcategory.Result.CategoryId);
-                                                       var user = _userManager.FindByIdAsync(model.AdminId);
+        var list = await _unitOfWork.Products.GetAllAsync();
 
-                                                       model.AdminFullName = user.Result == null ? "Noma'lum" : user.Result.FullName;
-                                                       model.SubcategoryName = subcategory.Result == null ? "Noma'lum" : category.Result == null ?
-                                                           subcategory.Result.Name : $"{category.Result.Name}\\{subcategory.Result.Name}";
+        if (list == null)
+        {
+            throw new ArgumentNullException(nameof(list));
+        }
 
-                                                       return model;
-                                                   })
-                                                   .ToList();
+        var categories = await _unitOfWork.Categories.GetAllAsync();
+        var subcategories = await _unitOfWork.Subcategories.GetAllAsync();
+        var users = _userManager.Users.ToList();
+
+        var dtoList = list.Select(x =>
+        {
+            var model = (ProductViewDto)x;
+            var subcategory = subcategories.FirstOrDefault(i => i.Id == model.SubcategoryId);
+            var category = categories.FirstOrDefault(i => i.Id == model.CategoryId);
+            var user = users.FirstOrDefault(u => u.Id == model.AdminId);
+
+            model.AdminFullName = user == null ? "Noma'lum" : user.FullName;
+            model.SubcategoryName = subcategory == null ? "Noma'lum" : subcategory.Name;
+            model.CategoryName = category == null ? "Noma'lum" : category.Name;
+
+            return model;
+        }).ToList();
 
         PagedList<ProductViewDto> pagedList = new(dtoList.ToList(),
                                                      dtoList.Count(),
@@ -159,15 +185,10 @@ public class ProductService : IProductService
         }
 
         var model = (ProductViewDto)product;
-        var category = _unitOfWork.Categories.GetByIdAsync(model.Id);
-        if (category.Result != null)
-        {
-            model.SubcategoryName = category.Result.Name;
-        }
-        else
-        {
-            model.SubcategoryName = "Noma'lum";
-        }
+        var category = await _unitOfWork.Categories.GetByIdAsync(model.Id);
+        var subcategory = await _unitOfWork.Subcategories.GetByIdAsync(model.Id);
+        model.SubcategoryName = subcategory == null ? "Noma'lum" : subcategory.Name;
+        model.CategoryName = category == null ? "Noma'lum" : category.Name;
 
         return model;
     }
@@ -205,22 +226,30 @@ public class ProductService : IProductService
     /// <returns>Paged list</returns>
     public async Task<PagedList<ProductViewDto>> GetProductsAsync(int pageSize, int pageNumber)
     {
-        var dtoList = (await _unitOfWork.Products.GetAllAsync())
-                                                   .Where(w => w.IsDeleted == false)
-                                                   .Select(i =>
-                                                   {
-                                                       var model = (ProductViewDto)i;
-                                                       var subcategory = _unitOfWork.Subcategories.GetByIdAsync(model.SubcategoryId);
-                                                       var category = _unitOfWork.Categories.GetByIdAsync(subcategory.Result.CategoryId);
-                                                       var user = _userManager.FindByIdAsync(model.AdminId);
+        var list = await _unitOfWork.Products.GetAllAsync();
 
-                                                       model.AdminFullName = user.Result == null ? "Noma'lum" : user.Result.FullName;
-                                                       model.SubcategoryName = subcategory.Result == null ? "Noma'lum" : category.Result == null ?
-                                                           subcategory.Result.Name : $"{category.Result.Name}\\{subcategory.Result.Name}";
+        if (list == null)
+        {
+            throw new ArgumentNullException(nameof(list));
+        }
 
-                                                       return model;
-                                                   })
-                                                   .ToList();
+        var categories = await _unitOfWork.Categories.GetAllAsync();
+        var subcategories = await _unitOfWork.Subcategories.GetAllAsync();
+        var users = _userManager.Users.ToList();
+
+        var dtoList = list.Select(x =>
+        {
+            var model = (ProductViewDto)x;
+            var subcategory = subcategories.FirstOrDefault(i => i.Id == model.SubcategoryId);
+            var category = categories.FirstOrDefault(i => i.Id == model.CategoryId);
+            var user = users.FirstOrDefault(u => u.Id == model.AdminId);
+
+            model.AdminFullName = user == null ? "Noma'lum" : user.FullName;
+            model.SubcategoryName = subcategory == null ? "Noma'lum" : subcategory.Name;
+            model.CategoryName = category == null ? "Noma'lum" : category.Name;
+
+            return model;
+        }).ToList();
 
         PagedList<ProductViewDto> pagedList = new(dtoList.ToList(),
                                                      dtoList.Count(),

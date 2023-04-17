@@ -87,7 +87,7 @@ public class PrintService : IDisposable
 
         printer.Append("\n");
         printer.AlignCenter();
-        printer.Code39(barcode);
+        printer.Code128(barcode);
         printer.Append("\n");
 
         printer.AlignCenter();

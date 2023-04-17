@@ -10,7 +10,7 @@ namespace API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[Authorize]
+//[Authorize]
 public class ProductController : ControllerBase
 {
     private readonly IProductService _productService;
@@ -223,5 +223,12 @@ public class ProductController : ControllerBase
         {
             return BadRequest(ex.Message);
         }
+    }
+
+    [HttpGet("barcodes/random")]
+    public async Task<IActionResult> RandomBarcode()
+    {
+        var barcode = await _productService.GenerateBarcodeAsync();
+        return Ok(barcode);
     }
 }

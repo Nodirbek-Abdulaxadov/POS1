@@ -12,6 +12,7 @@ public class ProductUpdateDto
     public string Barcode { get; set; } = string.Empty;
     public int WarningCount { get; set; }
 
+    public int CategoryId { get; set; }
     public int SubcategoryId { get; set; }
     public string AdminId { get; set; } = string.Empty;
 
@@ -25,6 +26,7 @@ public class ProductUpdateDto
             ModifiedDate = LocalTime.GetUtc5Time(),
             AdminId = v.AdminId,
             SubcategoryId = v.SubcategoryId,
+            CategoryId = v.CategoryId,
             Barcode = v.Barcode,
             WarningCount = v.WarningCount
         };
