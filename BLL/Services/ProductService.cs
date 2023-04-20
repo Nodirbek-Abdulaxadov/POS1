@@ -68,10 +68,11 @@ public class ProductService : IProductService
         }
 
         var products = await _unitOfWork.Products.GetAllAsync();
+        var barcodes = products.Select(p => p.Barcode).ToList();
         var exist = products.Where(x => x.Name == dto.Name)
                             .Any(p => p.IsEqual(dto));
 
-        if (exist)
+        if (exist || barcodes.Any(b => b == dto.Barcode))
         {
             throw new MarketException("This product is already exist!");
         }
