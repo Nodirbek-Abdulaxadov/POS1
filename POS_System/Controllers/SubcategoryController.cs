@@ -54,7 +54,24 @@ public class SubcategoryController : ControllerBase
 
             return Ok(list.Data);
         }
-        catch (MarketException ex)
+        catch (MarketException)
+        {
+            var list = new List<SubcategoryDto>();
+            var metaData = new
+            {
+                TotalCount = 0,
+                PageSize = 0,
+                CurrentPage = 0,
+                HasNext = 0,
+                HasPrevious = 0,
+                TotalPages = 0
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
+
+            return Ok(list);
+        }
+        catch (ArgumentNullException ex)
         {
             return NotFound(ex.Message);
         }
@@ -84,7 +101,24 @@ public class SubcategoryController : ControllerBase
 
             return Ok(list.Data);
         }
-        catch (MarketException ex)
+        catch (MarketException)
+        {
+            var list = new List<SubcategoryDto>();
+            var metaData = new
+            {
+                TotalCount = 0,
+                PageSize = 0,
+                CurrentPage = 0,
+                HasNext = 0,
+                HasPrevious = 0,
+                TotalPages = 0
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
+
+            return Ok(list);
+        }
+        catch (ArgumentNullException ex)
         {
             return NotFound(ex.Message);
         }

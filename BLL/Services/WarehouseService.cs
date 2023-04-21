@@ -50,16 +50,9 @@ public class WarehouseService : IWarehouseService
     /// Get all warehouse list
     /// </summary>
     /// <returns>List of Warehouses</returns>
-    /// <exception cref="ArgumentNullException"></exception>
     public async Task<IEnumerable<WarehouseViewDto>> GetAllAsync()
     {
         var list = await _unitOfWork.Warehouses.GetAllAsync();
-
-        if (list == null)
-        {
-            throw new ArgumentNullException(nameof(list));
-        }
-
         var dtoList = list.Select(x => (WarehouseViewDto)x);
         return dtoList;
     }
@@ -79,13 +72,18 @@ public class WarehouseService : IWarehouseService
                                                    .OrderBy(d => d.AddedDate)
                                                    .ToList();
 
+        if (dtoList.Count == 0)
+        {
+            throw new MarketException("Empty list");
+        }
+
         PagedList<WarehouseViewDto> pagedList = new (dtoList.ToList(),
                                                      dtoList.Count(),
                                                      pageSize, pageNumber);
 
         if (pageNumber > pagedList.TotalPages || pageNumber < 1)
         {
-            throw new MarketException("Page not fount!");
+            throw new ArgumentNullException("Page not fount!");
         }
 
         return pagedList.ToPagedList(dtoList, pageSize, pageNumber);
@@ -194,13 +192,18 @@ public class WarehouseService : IWarehouseService
                                                    .Select(i => (WarehouseViewDto)i)
                                                    .ToList();
 
+        if (dtoList.Count == 0)
+        {
+            throw new MarketException("Empty list");
+        }
+
         PagedList<WarehouseViewDto> pagedList = new(dtoList.ToList(),
                                                      dtoList.Count(),
                                                      pageSize, pageNumber);
 
         if (pageNumber > pagedList.TotalPages || pageNumber < 1)
         {
-            throw new MarketException("Page not fount!");
+            throw new ArgumentNullException("Page not fount!");
         }
 
         return pagedList.ToPagedList(dtoList, pageSize, pageNumber);

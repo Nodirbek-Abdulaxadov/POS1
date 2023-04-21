@@ -77,11 +77,6 @@ public class CategoryService : ICategoryService
     {
         var list = await _unitOfWork.Categories.GetAllAsync();
 
-        if (list == null)
-        {
-            throw new ArgumentNullException(nameof(list));
-        }
-
         var dtoList = list.Select(x => (CategoryViewDto)x);
         return dtoList;
     }
@@ -93,13 +88,18 @@ public class CategoryService : ICategoryService
                                                    .Select(i => (CategoryViewDto)i)
                                                    .ToList();
 
+        if (dtoList.Count == 0)
+        {
+            throw new MarketException("Empty list");
+        }
+
         PagedList<CategoryViewDto> pagedList = new(dtoList.ToList(),
                                                      dtoList.Count(),
                                                      pageSize, pageNumber);
 
         if (pageNumber > pagedList.TotalPages || pageNumber < 1)
         {
-            throw new MarketException("Page not fount!");
+            throw new ArgumentNullException("Page not fount!");
         }
 
         return pagedList.ToPagedList(dtoList, pageSize, pageNumber);
@@ -122,6 +122,10 @@ public class CategoryService : ICategoryService
                                                    .Where(w => w.IsDeleted == false)
                                                    .Select(i => (CategoryViewDto)i)
                                                    .ToList();
+        if (dtoList.Count == 0)
+        {
+            throw new MarketException("Empty list");
+        }
 
         PagedList<CategoryViewDto> pagedList = new(dtoList.ToList(),
                                                      dtoList.Count(),
@@ -129,7 +133,7 @@ public class CategoryService : ICategoryService
 
         if (pageNumber > pagedList.TotalPages || pageNumber < 1)
         {
-            throw new MarketException("Page not fount!");
+            throw new ArgumentNullException("Page not fount!");
         }
 
         return pagedList.ToPagedList(dtoList, pageSize, pageNumber);
@@ -151,7 +155,7 @@ public class CategoryService : ICategoryService
 
         if (model == null)
         {
-            throw new MarketException("Warehouse is not found!");
+            throw new MarketException("Category is not found!");
         }
 
         model = (Category)dto;

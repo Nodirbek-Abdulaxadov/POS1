@@ -105,11 +105,6 @@ public class ProductService : IProductService
     {
         var list = await _unitOfWork.Products.GetAllAsync();
 
-        if (list == null)
-        {
-            throw new ArgumentNullException(nameof(list));
-        }
-
         var categories = await _unitOfWork.Categories.GetAllAsync();
         var subcategories = await _unitOfWork.Subcategories.GetAllAsync();
         var users = _userManager.Users.ToList();
@@ -157,13 +152,18 @@ public class ProductService : IProductService
             return model;
         }).ToList();
 
+        if (dtoList.Count == 0)
+        {
+            throw new MarketException("Empty list");
+        }
+
         PagedList<ProductViewDto> pagedList = new(dtoList.ToList(),
                                                      dtoList.Count(),
                                                      pageSize, pageNumber);
 
         if (pageNumber > pagedList.TotalPages || pageNumber < 1)
         {
-            throw new MarketException("Page not fount!");
+            throw new ArgumentNullException("Page not fount!");
         }
 
         return pagedList.ToPagedList(dtoList, pageSize, pageNumber);
@@ -252,13 +252,18 @@ public class ProductService : IProductService
             return model;
         }).ToList();
 
+        if (dtoList.Count == 0)
+        {
+            throw new MarketException("Empty list");
+        }
+
         PagedList<ProductViewDto> pagedList = new(dtoList.ToList(),
                                                      dtoList.Count(),
                                                      pageSize, pageNumber);
 
         if (pageNumber > pagedList.TotalPages || pageNumber < 1)
         {
-            throw new MarketException("Page not fount!");
+            throw new ArgumentNullException("Page not fount!");
         }
 
         return pagedList.ToPagedList(dtoList, pageSize, pageNumber);
@@ -284,6 +289,7 @@ public class ProductService : IProductService
             throw new MarketException("Product is not found!");
         }
 
+        dto.AddedDate = model.AddedDate;
         await _unitOfWork.Products.UpdateAsync((Product)dto);
         await _unitOfWork.SaveAsync();
 

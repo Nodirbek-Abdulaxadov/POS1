@@ -1,4 +1,5 @@
-﻿using BLL.Dtos.WarehouseDtos;
+﻿using BLL.Dtos.SubcategoryDtos;
+using BLL.Dtos.WarehouseDtos;
 using BLL.Dtos.WarehouseItemDtos;
 using BLL.Helpers;
 using BLL.Interfaces;
@@ -57,7 +58,24 @@ namespace API.Controllers
 
                 return Ok(list.Data);
             }
-            catch (MarketException ex)
+            catch (MarketException)
+            {
+                var list = new List<WarehouseViewDto>();
+                var metaData = new
+                {
+                    TotalCount = 0,
+                    PageSize = 0,
+                    CurrentPage = 0,
+                    HasNext = 0,
+                    HasPrevious = 0,
+                    TotalPages = 0
+                };
+
+                Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
+
+                return Ok(list);
+            }
+            catch (ArgumentNullException ex)
             {
                 return NotFound(ex.Message);
             }
@@ -80,7 +98,24 @@ namespace API.Controllers
                 });
                 return Ok(json);
             }
-            catch (MarketException ex)
+            catch (MarketException)
+            {
+                var list = new List<WarehouseViewDto>();
+                var metaData = new
+                {
+                    TotalCount = 0,
+                    PageSize = 0,
+                    CurrentPage = 0,
+                    HasNext = 0,
+                    HasPrevious = 0,
+                    TotalPages = 0
+                };
+
+                Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
+
+                return Ok(list);
+            }
+            catch (ArgumentNullException ex)
             {
                 return NotFound(ex.Message);
             }

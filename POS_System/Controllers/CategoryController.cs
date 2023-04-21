@@ -10,7 +10,7 @@ namespace API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[Authorize]
+//[Authorize]
 public class CategoryController : ControllerBase
 {
     private readonly ICategoryService _categoryService;
@@ -52,10 +52,26 @@ public class CategoryController : ControllerBase
 
             Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
 
-
             return Ok(list.Data);
         }
-        catch (MarketException ex)
+        catch (MarketException)
+        {
+            var list = new List<CategoryViewDto>();
+            var metaData = new
+            {
+                TotalCount = 0,
+                PageSize = 0,
+                CurrentPage = 0,
+                HasNext = 0,
+                HasPrevious = 0,
+                TotalPages = 0
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
+
+            return Ok(list);
+        }
+        catch (ArgumentNullException ex)
         {
             return NotFound(ex.Message);
         }
@@ -71,14 +87,38 @@ public class CategoryController : ControllerBase
         try
         {
             var list = await _categoryService.GetArchivedCategoriesAsync(pageSize, pageNumber);
-            var json = JsonConvert.SerializeObject(list, Formatting.Indented,
-            new JsonSerializerSettings
+            var metaData = new
             {
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-            });
-            return Ok(json);
+                list.TotalCount,
+                list.PageSize,
+                list.CurrentPage,
+                list.HasNext,
+                list.HasPrevious,
+                list.TotalPages
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
+
+            return Ok(list.Data);
         }
-        catch (MarketException ex)
+        catch (MarketException)
+        {
+            var list = new List<CategoryViewDto>();
+            var metaData = new
+            {
+                TotalCount = 0,
+                PageSize = 0,
+                CurrentPage = 0,
+                HasNext = 0,
+                HasPrevious = 0,
+                TotalPages = 0
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
+
+            return Ok(list);
+        }
+        catch (ArgumentNullException ex)
         {
             return NotFound(ex.Message);
         }

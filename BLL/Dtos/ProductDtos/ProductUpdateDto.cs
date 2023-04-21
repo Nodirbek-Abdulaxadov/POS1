@@ -15,6 +15,7 @@ public class ProductUpdateDto
     public int CategoryId { get; set; }
     public int SubcategoryId { get; set; }
     public string AdminId { get; set; } = string.Empty;
+    public DateTime AddedDate { get; set; }
 
     public static explicit operator Product(ProductUpdateDto v)
         => new Product()
@@ -28,6 +29,7 @@ public class ProductUpdateDto
             SubcategoryId = v.SubcategoryId,
             CategoryId = v.CategoryId,
             Barcode = v.Barcode,
-            WarningCount = v.WarningCount
+            WarningCount = v.WarningCount,
+            AddedDate = v.AddedDate
         };
 }

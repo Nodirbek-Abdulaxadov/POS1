@@ -17,6 +17,9 @@ public class ProductViewDto : BaseDto
     public string AdminId { get; set; } = string.Empty;
     public string AdminFullName { get; set; } = string.Empty;
 
+    public DateTime AddedDate { get; set; }
+    public DateTime ModifiedDate { get; set; }
+
     public static explicit operator ProductViewDto(Product v)
         => new ProductViewDto()
         {
@@ -28,6 +31,8 @@ public class ProductViewDto : BaseDto
             CategoryId= v.CategoryId,
             Barcode = v.Barcode,
             WarningCount = v.WarningCount,
-            AdminId = v.AdminId
+            AdminId = v.AdminId,
+            AddedDate = v.AddedDate,
+            ModifiedDate = v.ModifiedDate
         };
 }

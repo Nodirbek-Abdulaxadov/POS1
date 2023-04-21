@@ -111,6 +111,11 @@ public class SubcategoryService : ISubcategoryService
                                                    })
                                                    .ToList();
 
+        if (dtoList.Count == 0)
+        {
+            throw new MarketException("Empty list");
+        }
+
         PagedList<SubcategoryDto> pagedList = new(dtoList.ToList(),
                                                      dtoList.Count(),
                                                      pageSize, pageNumber);
@@ -150,13 +155,18 @@ public class SubcategoryService : ISubcategoryService
                                                    })
                                                    .ToList();
 
+        if (dtoList.Count == 0)
+        {
+            throw new MarketException("Empty list");
+        }
+
         PagedList<SubcategoryDto> pagedList = new(dtoList.ToList(),
                                                      dtoList.Count(),
                                                      pageSize, pageNumber);
 
         if (pageNumber > pagedList.TotalPages || pageNumber < 1)
         {
-            throw new MarketException("Page not fount!");
+            throw new ArgumentNullException("Page not fount!");
         }
 
         return pagedList.ToPagedList(dtoList, pageSize, pageNumber);
