@@ -1,4 +1,5 @@
-﻿using DataLayer.Entities;
+﻿using BLL.Helpers;
+using DataLayer.Entities;
 
 namespace BLL.Dtos.WarehouseItemDtos;
 
@@ -13,6 +14,8 @@ public class UpdateWarehouseItemDto
     public int ProductId { get; set; }
     public string AdminId { get; set; } = string.Empty;
     public int WarehouseId { get; set; }
+    public DateTime AddedDate { get; set; }
+    public DateTime ModifiedDate { get; set; }
 
     public static explicit operator WarehouseItem(UpdateWarehouseItemDto v)
          => new WarehouseItem()
@@ -24,6 +27,8 @@ public class UpdateWarehouseItemDto
              ProductId = v.ProductId,
              BroughtDate = v.BroughtDate,
              IncomingPrice = v.IncomingPrice,
-             SellingPrice = v.SellingPrice
+             SellingPrice = v.SellingPrice,
+             AddedDate = v.AddedDate,
+             ModifiedDate = LocalTime.GetUtc5Time()
          };
 }

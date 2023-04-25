@@ -1,4 +1,5 @@
-﻿using DataLayer.Entities.Selling;
+﻿using BLL.Helpers;
+using DataLayer.Entities.Selling;
 
 namespace BLL.Dtos.CustomerDtos;
 
@@ -11,6 +12,9 @@ public class AddCustomerDto
         => new Customer()
         {
             FullName = v.FullName,
-            PhoneNumber = v.PhoneNumber
+            PhoneNumber = v.PhoneNumber,
+            AddedDate = LocalTime.GetUtc5Time(),
+            ModifiedDate = LocalTime.GetUtc5Time(),
+            IsDeleted = false
         };
 }

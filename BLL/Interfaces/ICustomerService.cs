@@ -6,6 +6,7 @@ namespace BLL.Interfaces;
 public interface ICustomerService
 {
     Task<PagedList<CustomerViewDto>> GetPagedAsync(int pageSize, int pageNumber);
+    Task<PagedList<CustomerViewDto>> GetArchivedAsync(int pageSize, int pageNumber);
     Task<IEnumerable<CustomerViewDto>> GetAllAsync();
 
     Task<CustomerViewDto> GetByIdAsync(int id);

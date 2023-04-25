@@ -2,6 +2,7 @@
 using BLL.Helpers;
 using BLL.Interfaces;
 using BLL.Validations;
+using DataLayer.VModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -10,7 +11,7 @@ namespace API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-//[Authorize]
+[Authorize]
 public class ProductController : ControllerBase
 {
     private readonly IProductService _productService;

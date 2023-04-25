@@ -47,6 +47,8 @@ namespace API.Configurations
             builder.Services.AddTransient<ICategoryInterface, CategoryRepository>();
             builder.Services.AddTransient<ISubcategoryInterface, SubcategoryRepository>();
             builder.Services.AddTransient<ISupplierInterface, SupplierRepository>();
+            builder.Services.AddTransient<ITransferInterface, TransferRepository>();
+            builder.Services.AddTransient<TransferWarehouseItemInterface, TransferWarehouseItemRepository>();
             builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             builder.Services.AddTransient<IWarehouseService, WarehouseService>();
@@ -57,6 +59,7 @@ namespace API.Configurations
             builder.Services.AddTransient<IReceiptService, ReceiptService>();
             builder.Services.AddTransient<ICategoryService, CategoryService>();
             builder.Services.AddTransient<ISubcategoryService, SubcategoryService>();
+            builder.Services.AddTransient<ITransferService, TransferService>();
 
             builder.Services.AddTransient<IMessageService, MessageService>();
 

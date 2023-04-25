@@ -23,4 +23,7 @@ public class AppDbContext : IdentityDbContext<User>
 	public DbSet<Receipt> Receipts { get; set; }
 	public DbSet<Transaction> Transactions { get; set; }
 	public DbSet<RefreshToken> RefreshTokens { get; set; }
+	public DbSet<Partner> Partners { get; set; }
+	public DbSet<Transfer> Transfers { get; set; }
+	public DbSet<TransferWarehouseItem> TransferWarehouseItems { get; set; }
 }

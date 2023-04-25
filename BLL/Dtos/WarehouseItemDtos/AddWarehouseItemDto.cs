@@ -1,4 +1,5 @@
-﻿using DataLayer.Entities;
+﻿using BLL.Helpers;
+using DataLayer.Entities;
 using System.ComponentModel.DataAnnotations;
 
 namespace BLL.Dtos.WarehouseItemDtos;
@@ -8,8 +9,7 @@ public class AddWarehouseItemDto
     [Required]
     public int Quantity { get; set; }
     [Required]
-    [StringLength(30)]
-    public string BroughtDate { get; set; } = string.Empty;
+    public DateOnly BroughtDate { get; set; }
     [Required]
     public decimal IncomingPrice { get; set; }
     [Required]
@@ -30,8 +30,10 @@ public class AddWarehouseItemDto
             ProductId = v.ProductId,
             AdminId = v.AdminId,
             WarehouseId = v.WarehouseId,
-            BroughtDate = v.BroughtDate,
+            BroughtDate = v.BroughtDate.ToString(),
             IncomingPrice = v.IncomingPrice,
-            IsDeleted = false
+            IsDeleted = false,
+            AddedDate = LocalTime.GetUtc5Time(),
+            ModifiedDate = LocalTime.GetUtc5Time()
         };
 }

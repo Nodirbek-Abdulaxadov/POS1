@@ -55,7 +55,6 @@ namespace API.Controllers
 
                 Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
 
-
                 return Ok(list.Data);
             }
             catch (MarketException)

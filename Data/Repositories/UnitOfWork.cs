@@ -18,7 +18,9 @@ public class UnitOfWork : IUnitOfWork
                        IWarehouseItemInterface warehouseItemInterface,
                        ICategoryInterface categories,
                        ISubcategoryInterface subcategory,
-                       ISupplierInterface supplierInterface)
+                       ISupplierInterface supplierInterface,
+                       TransferWarehouseItemInterface transferWarehouseItemInterface,
+                       ITransferInterface transferInterface)
     {
         _dbContext = dbContext;
         Customers = customerInterface;
@@ -32,6 +34,8 @@ public class UnitOfWork : IUnitOfWork
         Categories = categories;
         Subcategories = subcategory;
         Suppliers = supplierInterface;
+        TransferWarehouseItems = transferWarehouseItemInterface;
+        Transfers = transferInterface;
     }
     public ICustomerInterface Customers { get; }
 
@@ -54,6 +58,10 @@ public class UnitOfWork : IUnitOfWork
     public ISubcategoryInterface Subcategories { get; }
 
     public ISupplierInterface Suppliers { get; }
+
+    public TransferWarehouseItemInterface TransferWarehouseItems { get; }
+
+    public ITransferInterface Transfers { get; }
 
     public void Dispose()
             => GC.SuppressFinalize(this);

@@ -1,5 +1,6 @@
 ﻿using BLL.Dtos.ProductDtos;
 using BLL.Helpers;
+using DataLayer.VModels;
 
 namespace BLL.Interfaces;
 

@@ -14,6 +14,7 @@ public class Product : BaseEntity
     public string Barcode { get; set; } = string.Empty;
     [StringLength(50)]
     public string MadeIn { get; set; } = string.Empty;
+    public int Quantity { get; set; } = 0;
     [Required]
     public int CategoryId { get; set; }
 

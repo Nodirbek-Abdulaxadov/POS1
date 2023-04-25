@@ -20,7 +20,7 @@ public class Repository<TEntity>
         return entity;
     }
 
-    public async Task<IEnumerable<TEntity>> GetAllAsync()
+    public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
         => await _dbContext.Set<TEntity>()
                            .AsNoTracking()
                            .ToListAsync();

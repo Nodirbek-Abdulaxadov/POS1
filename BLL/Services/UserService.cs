@@ -207,4 +207,22 @@ public class UserService : IUserService
                                      .FirstOrDefaultAsync(u => u.PhoneNumber == phoneNumber);
         return user;
     }
+
+    public async Task<IEnumerable<UserViewDto>> GetUsers(string role)
+    {
+        var users = await _userManager.Users.ToListAsync();
+        List<UserViewDto> result = new List<UserViewDto>();
+        foreach (var user in users)
+        {
+            var userIsInValidRole = await _userManager.IsInRoleAsync(user, role.ToUpper());
+            if (userIsInValidRole)
+            {
+                var viewModel = (UserViewDto)user;
+                viewModel.Role = role.ToUpper();
+                result.Add(viewModel);
+            }
+        }
+
+        return result;
+    }
 }

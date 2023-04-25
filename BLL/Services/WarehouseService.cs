@@ -79,7 +79,7 @@ public class WarehouseService : IWarehouseService
 
         PagedList<WarehouseViewDto> pagedList = new (dtoList.ToList(),
                                                      dtoList.Count(),
-                                                     pageSize, pageNumber);
+                                                     pageNumber, pageSize);
 
         if (pageNumber > pagedList.TotalPages || pageNumber < 1)
         {

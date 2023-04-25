@@ -1,4 +1,5 @@
-﻿using BLL.Dtos.WarehouseItemDtos;
+﻿using BLL.Dtos.WarehouseDtos;
+using BLL.Dtos.WarehouseItemDtos;
 using BLL.Helpers;
 using BLL.Interfaces;
 using BLL.Validations;
@@ -39,9 +40,38 @@ namespace API.Controllers
             try
             {
                 var list = await _itemService.GetPagedAsync(pageSize, pageNumber, warehouseId);
+                var metaData = new
+                {
+                    list.TotalCount,
+                    list.PageSize,
+                    list.CurrentPage,
+                    list.HasNext,
+                    list.HasPrevious,
+                    list.TotalPages
+                };
+
+                Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
+
+                return Ok(list.Data);
+            }
+            catch (MarketException)
+            {
+                var list = new List<WarehouseViewDto>();
+                var metaData = new
+                {
+                    TotalCount = 0,
+                    PageSize = 0,
+                    CurrentPage = 0,
+                    HasNext = 0,
+                    HasPrevious = 0,
+                    TotalPages = 0
+                };
+
+                Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
+
                 return Ok(list);
             }
-            catch (MarketException ex)
+            catch (ArgumentNullException ex)
             {
                 return NotFound(ex.Message);
             }
@@ -57,14 +87,38 @@ namespace API.Controllers
             try
             {
                 var list = await _itemService.GetArchivedAsync(pageSize, pageNumber);
-                var json = JsonConvert.SerializeObject(list, Formatting.Indented,
-                new JsonSerializerSettings
+                var metaData = new
                 {
-                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                });
-                return Ok(json);
+                    list.TotalCount,
+                    list.PageSize,
+                    list.CurrentPage,
+                    list.HasNext,
+                    list.HasPrevious,
+                    list.TotalPages
+                };
+
+                Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
+
+                return Ok(list.Data);
             }
-            catch (MarketException ex)
+            catch (MarketException)
+            {
+                var list = new List<WarehouseViewDto>();
+                var metaData = new
+                {
+                    TotalCount = 0,
+                    PageSize = 0,
+                    CurrentPage = 0,
+                    HasNext = 0,
+                    HasPrevious = 0,
+                    TotalPages = 0
+                };
+
+                Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
+
+                return Ok(list);
+            }
+            catch (ArgumentNullException ex)
             {
                 return NotFound(ex.Message);
             }
@@ -133,7 +187,6 @@ namespace API.Controllers
         {
             try
             {
-                var model = await _itemService.GetByIdAsync(id);
                 await _itemService.ActionAsync(id, ActionType.Remove);
                 return Ok();
             }

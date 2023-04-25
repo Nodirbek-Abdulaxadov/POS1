@@ -51,6 +51,29 @@ public class CustomerService : ICustomerService
         return list.Select(i => (CustomerViewDto)i);
     }
 
+    public async Task<PagedList<CustomerViewDto>> GetArchivedAsync(int pageSize, int pageNumber)
+    {
+        var dtoList = (await _unitOfWork.Customers.GetAllAsync())
+            .Where(c => c.IsDeleted == true)
+            .Select(x => (CustomerViewDto)x);
+
+        if (!dtoList.Any())
+        {
+            throw new MarketException("Empty list");
+        }
+
+        PagedList<CustomerViewDto> pagedList = new(dtoList.ToList(),
+                                                     dtoList.Count(),
+                                                     pageNumber, pageSize);
+
+        if (pageNumber > pagedList.TotalPages || pageNumber < 1)
+        {
+            throw new ArgumentNullException("Page not fount!");
+        }
+
+        return pagedList.ToPagedList(dtoList, pageSize, pageNumber);
+    }
+
     public async Task<CustomerViewDto> GetByIdAsync(int id)
     {
         var model = await _unitOfWork.Customers.GetByIdAsync(id);
@@ -65,14 +88,22 @@ public class CustomerService : ICustomerService
 
     public async Task<PagedList<CustomerViewDto>> GetPagedAsync(int pageSize, int pageNumber)
     {
-        var dtoList = await GetAllAsync();
+        var dtoList = (await _unitOfWork.Customers.GetAllAsync())
+            .Where(c => c.IsDeleted == false)
+            .Select(x => (CustomerViewDto)x);
+
+        if (!dtoList.Any())
+        {
+            throw new MarketException("Empty list");
+        }
+
         PagedList<CustomerViewDto> pagedList = new(dtoList.ToList(),
-                                                     dtoList.Count(),
-                                                     pageSize, pageNumber);
+                                                     dtoList.Count(), 
+                                                     pageNumber, pageSize);
 
         if (pageNumber > pagedList.TotalPages || pageNumber < 1)
         {
-            throw new MarketException("Page not fount!");
+            throw new ArgumentNullException("Page not fount!");
         }
 
         return pagedList.ToPagedList(dtoList, pageSize, pageNumber);
@@ -112,6 +143,7 @@ public class CustomerService : ICustomerService
         }
 
         model = (Customer)dto;
+        model.ModifiedDate = LocalTime.GetUtc5Time();
         await _unitOfWork.Customers.UpdateAsync(model);
         await _unitOfWork.SaveAsync();
 

@@ -3,7 +3,7 @@
 public class WarehouseItemViewDto : BaseDto
 {
     public int Quantity { get; set; }
-    public string BroughtDate { get; set; } = string.Empty;
+    public DateOnly BroughtDate { get; set; }
     public decimal IncomingPrice { get; set; }
     public decimal SellingPrice { get; set; }
     public string ProductName { get; set; } = string.Empty;
@@ -12,4 +12,7 @@ public class WarehouseItemViewDto : BaseDto
     public string AdminFullName { get; set; } = string.Empty;
     public int WarehouseId { get; set; }
     public string WarehouseName { get; set; } = string.Empty;
+
+    public DateTime AddedDate { get; set; }
+    public DateTime ModifiedDate { get; set; }
 }

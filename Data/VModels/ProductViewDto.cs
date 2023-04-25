@@ -1,14 +1,17 @@
 ﻿using DataLayer.Entities;
 
-namespace BLL.Dtos.ProductDtos;
+namespace DataLayer.VModels;
 
-public class ProductViewDto : BaseDto
+public class ProductViewDto
 {
-   public string Name { get; set; } = string.Empty;
+    public int Id { get; set; }
+    public bool IsDeleted { get; set; }
+    public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
     public string MadeIn { get; set; } = string.Empty;
     public string Barcode { get; set; } = string.Empty;
     public int WarningCount { get; set; }
+    public int Quantity { get; set; }
 
     public int CategoryId { get; set; }
     public string CategoryName { get; set; } = string.Empty;
@@ -28,7 +31,7 @@ public class ProductViewDto : BaseDto
             Description = v.Description,
             MadeIn = v.MadeIn,
             SubcategoryId = v.SubcategoryId,
-            CategoryId= v.CategoryId,
+            CategoryId = v.CategoryId,
             Barcode = v.Barcode,
             WarningCount = v.WarningCount,
             AdminId = v.AdminId,

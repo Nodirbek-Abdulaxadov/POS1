@@ -74,9 +74,32 @@ public class WarehouseItemService : IWarehouseItemService
             throw new MarketException("All fields must be positive numbers!");
         }
 
+        var existWarehouseItems = (await _unitOfWork.WarehouseItems.GetAllAsync())
+                                        .Where(i => i.ProductId == dto.ProductId 
+                                                 && i.WarehouseId == dto.WarehouseId
+                                                 && i.IsDeleted == false );
+
+        if (existWarehouseItems.Any())
+        {
+            foreach (var item in existWarehouseItems)
+            {
+                var price = dto.SellingPrice > item.SellingPrice ? dto.SellingPrice : item.SellingPrice;
+                _unitOfWork.WarehouseItems.MultipleUpdatePrice(item.ProductId, dto.WarehouseId, price);
+                await _unitOfWork.SaveAsync();
+            }
+        }
+        var product = await _unitOfWork.Products.GetByIdAsync(dto.ProductId);
+        if (product == null)
+        {
+            throw new MarketException(nameof(product));
+        }
+        product.Quantity = (await _unitOfWork.WarehouseItems.GetAllAsync())
+                                .Where(i => i.IsDeleted == false 
+                                         && i.ProductId == dto.ProductId)
+                                .Sum(p => p.Quantity) + dto.Quantity;
+        await _unitOfWork.Products.UpdateAsync(product);
         var model = await _unitOfWork.WarehouseItems.AddAsync((WarehouseItem)dto);
         await _unitOfWork.SaveAsync();
-
         return (WarehouseItemDto)model;
     }
 
@@ -98,6 +121,11 @@ public class WarehouseItemService : IWarehouseItemService
         var dtoList = (await _unitOfWork.WarehouseItems.GetAllAsync())
                                                    .Where(w => w.IsDeleted == true);
 
+        if (dtoList.Count() == 0)
+        {
+            throw new MarketException("Empty list");
+        }
+
         var list = await Convert(dtoList);
         PagedList<WarehouseItemViewDto> pagedList = new(list.ToList(),
                                                      dtoList.Count(),
@@ -105,7 +133,7 @@ public class WarehouseItemService : IWarehouseItemService
 
         if (pageNumber > pagedList.TotalPages || pageNumber < 1)
         {
-            throw new MarketException("Page not fount!");
+            throw new ArgumentNullException("Page not fount!");
         }
 
 
@@ -124,21 +152,32 @@ public class WarehouseItemService : IWarehouseItemService
         }
 
         var product = products.FirstOrDefault(p => p.Id == x.ProductId);
+        if (product == null)
+        {
+            throw new MarketException(nameof(product));
+        }
         var warehouse = warehouses.FirstOrDefault(w => w.Id == x.WarehouseId);
         var admin = admins.FirstOrDefault(a => a.Id == x.AdminId);
+        if (admin == null)
+        {
+            throw new MarketException(nameof(admin));
+        }
+
         return new WarehouseItemViewDto()
         {
             Id = x.Id,
             AdminFullName = admin.FullName,
             AdminId = x.AdminId,
-            BroughtDate = x.BroughtDate,
+            BroughtDate = DateOnly.Parse(x.BroughtDate),
             IncomingPrice = x.IncomingPrice,
             SellingPrice = x.SellingPrice,
             ProductId = x.ProductId,
             ProductName = product.Name,
             Quantity = x.Quantity,
             WarehouseId = x.WarehouseId,
-            WarehouseName = warehouse.Name
+            WarehouseName = warehouse == null? "Noma'lum" : warehouse.Name,
+            AddedDate = x.AddedDate,
+            ModifiedDate = x.ModifiedDate
         };
     }
 
@@ -147,6 +186,11 @@ public class WarehouseItemService : IWarehouseItemService
         var dtoList = (await _unitOfWork.WarehouseItems.GetAllAsync())
                                                    .Where(w => w.IsDeleted == false);
 
+        if (dtoList.Count() == 0)
+        {
+            throw new MarketException("Empty list");
+        }
+
         var list = await Convert(dtoList);
         PagedList<WarehouseItemViewDto> pagedList = new(list.ToList(),
                                                      dtoList.Count(),
@@ -154,7 +198,7 @@ public class WarehouseItemService : IWarehouseItemService
 
         if (pageNumber > pagedList.TotalPages || pageNumber < 1)
         {
-            throw new MarketException("Page not fount!");
+            throw new ArgumentNullException("Page not fount!");
         }
 
 
@@ -196,14 +240,16 @@ public class WarehouseItemService : IWarehouseItemService
                                   Id = x.Id,
                                   AdminFullName = admin.FullName,
                                   AdminId = x.AdminId,
-                                  BroughtDate = x.BroughtDate,
+                                  BroughtDate = DateOnly.Parse(x.BroughtDate),
                                   IncomingPrice = x.IncomingPrice,
                                   SellingPrice = x.SellingPrice,
                                   ProductId = x.ProductId,
                                   ProductName = product.Name,
                                   Quantity = x.Quantity,
                                   WarehouseId = x.WarehouseId,
-                                  WarehouseName = warehouse.Name
+                                  WarehouseName = warehouse.Name,
+                                  AddedDate = x.AddedDate,
+                                  ModifiedDate = x.ModifiedDate
                               };
                           });
         return dtoList;

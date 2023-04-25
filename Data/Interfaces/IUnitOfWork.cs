@@ -13,5 +13,7 @@ public interface IUnitOfWork : IDisposable
     ICategoryInterface Categories { get; }
     ISubcategoryInterface Subcategories { get; }
     ISupplierInterface Suppliers { get; }
+    TransferWarehouseItemInterface TransferWarehouseItems { get; }
+    ITransferInterface Transfers { get; }
     Task SaveAsync();
 }

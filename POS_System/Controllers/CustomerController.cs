@@ -1,14 +1,16 @@
 ﻿using BLL.Dtos.CustomerDtos;
+using BLL.Dtos.WarehouseDtos;
 using BLL.Interfaces;
 using BLL.Validations;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerService _customerService;
@@ -42,9 +44,85 @@ namespace API.Controllers
             try
             {
                 var list = await _customerService.GetPagedAsync(pageSize, pageNumber);
+                var metaData = new
+                {
+                    list.TotalCount,
+                    list.PageSize,
+                    list.CurrentPage,
+                    list.HasNext,
+                    list.HasPrevious,
+                    list.TotalPages
+                };
+
+                Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
+
+                return Ok(list.Data);
+            }
+            catch (MarketException)
+            {
+                var list = new List<WarehouseViewDto>();
+                var metaData = new
+                {
+                    TotalCount = 0,
+                    PageSize = 0,
+                    CurrentPage = 0,
+                    HasNext = 0,
+                    HasPrevious = 0,
+                    TotalPages = 0
+                };
+
+                Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
+
                 return Ok(list);
             }
-            catch (MarketException ex)
+            catch (ArgumentNullException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("archived/paged")]
+        public async Task<ActionResult<IEnumerable<CustomerViewDto>>> GetArchived(int pageSize, int pageNumber)
+        {
+            try
+            {
+                var list = await _customerService.GetArchivedAsync(pageSize, pageNumber);
+                var metaData = new
+                {
+                    list.TotalCount,
+                    list.PageSize,
+                    list.CurrentPage,
+                    list.HasNext,
+                    list.HasPrevious,
+                    list.TotalPages
+                };
+
+                Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
+
+                return Ok(list.Data);
+            }
+            catch (MarketException)
+            {
+                var list = new List<WarehouseViewDto>();
+                var metaData = new
+                {
+                    TotalCount = 0,
+                    PageSize = 0,
+                    CurrentPage = 0,
+                    HasNext = 0,
+                    HasPrevious = 0,
+                    TotalPages = 0
+                };
+
+                Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
+
+                return Ok(list);
+            }
+            catch (ArgumentNullException ex)
             {
                 return NotFound(ex.Message);
             }

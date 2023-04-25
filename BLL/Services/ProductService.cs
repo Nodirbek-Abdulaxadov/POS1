@@ -5,6 +5,7 @@ using BLL.Validations;
 using Core;
 using DataLayer.Entities;
 using DataLayer.Interfaces;
+using DataLayer.VModels;
 using Microsoft.AspNetCore.Identity;
 
 namespace BLL.Services;
@@ -102,32 +103,11 @@ public class ProductService : IProductService
     /// </summary>
     /// <returns>List of products</returns>
     public async Task<IEnumerable<ProductViewDto>> GetAllAsync()
-    {
-        var list = await _unitOfWork.Products.GetAllAsync();
-
-        var categories = await _unitOfWork.Categories.GetAllAsync();
-        var subcategories = await _unitOfWork.Subcategories.GetAllAsync();
-        var users = _userManager.Users.ToList();
-
-        var dtoList = list.Select(x =>
-        {
-            var model = (ProductViewDto)x;
-            var subcategory = subcategories.FirstOrDefault(i => i.Id == model.SubcategoryId);
-            var category = categories.FirstOrDefault(i => i.Id == model.CategoryId);
-            var user = users.FirstOrDefault(u => u.Id == model.AdminId);
-
-            model.AdminFullName = user == null ? "Noma'lum" : user.FullName;
-            model.SubcategoryName = subcategory == null ? "Noma'lum" : subcategory.Name;
-            model.CategoryName = category == null ? "Noma'lum" : category.Name;
-
-            return model;
-        });
-        return dtoList;
-    }
+        => await _unitOfWork.Products.GetAllWithTransactionAsync();
 
     public async Task<PagedList<ProductViewDto>> GetArchivedProductsAsync(int pageSize, int pageNumber)
     {
-        var list = await _unitOfWork.Products.GetAllAsync();
+        var list = await _unitOfWork.Products.GetAllWithTransactionAsync();
 
         if (list == null)
         {
@@ -159,7 +139,7 @@ public class ProductService : IProductService
 
         PagedList<ProductViewDto> pagedList = new(dtoList.ToList(),
                                                      dtoList.Count(),
-                                                     pageSize, pageNumber);
+                                                     pageNumber, pageSize);
 
         if (pageNumber > pagedList.TotalPages || pageNumber < 1)
         {
@@ -196,7 +176,7 @@ public class ProductService : IProductService
 
     public async Task<List<DProduct>> GetDProducts()
     {
-        var products = await _unitOfWork.Products.GetAllAsync();
+        var products = await _unitOfWork.Products.GetAllWithTransactionAsync();
         var warehouseItems = await _unitOfWork.WarehouseItems.GetAllAsync();
         List<DProduct> dProducts = new List<DProduct>();
         foreach (var product in products)
@@ -227,7 +207,7 @@ public class ProductService : IProductService
     /// <returns>Paged list</returns>
     public async Task<PagedList<ProductViewDto>> GetProductsAsync(int pageSize, int pageNumber)
     {
-        var list = await _unitOfWork.Products.GetAllAsync();
+        var list = await _unitOfWork.Products.GetAllWithTransactionAsync();
 
         if (list == null)
         {
@@ -259,7 +239,7 @@ public class ProductService : IProductService
 
         PagedList<ProductViewDto> pagedList = new(dtoList.ToList(),
                                                      dtoList.Count(),
-                                                     pageSize, pageNumber);
+                                                     pageNumber, pageSize);
 
         if (pageNumber > pagedList.TotalPages || pageNumber < 1)
         {
