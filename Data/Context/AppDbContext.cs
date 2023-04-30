@@ -26,4 +26,5 @@ public class AppDbContext : IdentityDbContext<User>
 	public DbSet<Partner> Partners { get; set; }
 	public DbSet<Transfer> Transfers { get; set; }
 	public DbSet<TransferWarehouseItem> TransferWarehouseItems { get; set; }
+	public DbSet<VerificationCode> VerificationCodes { get; set; }
 }

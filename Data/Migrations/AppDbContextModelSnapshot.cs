@@ -548,6 +548,42 @@ namespace DataLayer.Migrations
                     b.ToTable("TransferWarehouseItems");
                 });
 
+            modelBuilder.Entity("DataLayer.Entities.VerificationCode", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("AddedDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<int>("Code")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("ExpireDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("IPAdress")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VerificationCodes");
+                });
+
             modelBuilder.Entity("DataLayer.Entities.Warehouse", b =>
                 {
                     b.Property<int>("Id")

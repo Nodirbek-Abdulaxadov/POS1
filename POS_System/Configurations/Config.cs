@@ -49,6 +49,7 @@ namespace API.Configurations
             builder.Services.AddTransient<ISupplierInterface, SupplierRepository>();
             builder.Services.AddTransient<ITransferInterface, TransferRepository>();
             builder.Services.AddTransient<TransferWarehouseItemInterface, TransferWarehouseItemRepository>();
+            builder.Services.AddTransient<IVerificationCodeInterface, VerificationCodeRepository>();
             builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             builder.Services.AddTransient<IWarehouseService, WarehouseService>();
@@ -118,6 +119,7 @@ namespace API.Configurations
             });
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "ASP0014:Suggest using top level route registrations", Justification = "<Pending>")]
         public static void AddMiddlewares(this WebApplication app)
         {
             // Use Serilog as the logging provider
@@ -135,6 +137,13 @@ namespace API.Configurations
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+            });
             app.MapControllers();
 
             AppDbInitializer.SeedRolesToDatabase(app).Wait();

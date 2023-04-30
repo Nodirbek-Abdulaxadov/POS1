@@ -1,0 +1,23 @@
+﻿@model VerificationViewModel
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form class="form" method="post" asp-area="security" asp-controller="home" asp-action="verify">
+            <div class="mb-5">
+                <h1 class="text-center">BILLER Security</h1>
+                <h6 class="text-center">Parollarni boshqarish tizimi</h6>
+            </div>
+            <input asp-for="PhoneNumber" type="hidden" class="form-control" value="@Model.PhoneNumber">
+            <div class="mb-3" style="width: 80%; margin: 0 auto;">
+                <label for="tel" class="form-label">Tasdiqlash kodini kiriting:</label>
+                <input asp-for="Code" type="number" class="form-control" id="tel" placeholder="00000">
+                <span asp-validation-for="Code" class="form-text text-danger"></span>
+            </div>
+            <br />
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary mb-2">Tasdiqlash</button>
+            </div>
+        </form>
+    </div>
+</div>

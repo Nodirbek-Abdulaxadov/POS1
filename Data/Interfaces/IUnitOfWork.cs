@@ -15,5 +15,6 @@ public interface IUnitOfWork : IDisposable
     ISupplierInterface Suppliers { get; }
     TransferWarehouseItemInterface TransferWarehouseItems { get; }
     ITransferInterface Transfers { get; }
+    IVerificationCodeInterface VerificationCodes { get; }
     Task SaveAsync();
 }

@@ -1,41 +1,81 @@
-﻿using BLL.Dtos.MessageDtos;
+﻿using BLL.Helpers;
 using BLL.Interfaces;
 using BLL.Validations;
+using DataLayer.Entities;
+using DataLayer.Interfaces;
 using Messager;
-using static System.Net.WebRequestMethods;
 
 namespace BLL.Services;
 
 public class MessageService : IMessageService
 {
-    public Task<bool> CheckOTP(CheckOtpDto otp)
+    private readonly IUnitOfWork _unitOfWork;
+
+    public MessageService(IUnitOfWork unitOfWork)
     {
-        if (otp == null || 
-            string.IsNullOrEmpty(otp.SessionKey) ||
-            otp.VerificationCode < 0)
-        {
-            return Task.FromResult(false);
-        }
-
-        var sessionKey = $"{otp.SessionKey.Split('|')[0]}|{otp.VerificationCode}";
-        var isValid = sessionKey.Equals(otp.SessionKey);
-
-        return Task.FromResult(isValid);
+        _unitOfWork = unitOfWork;
     }
 
-    public async Task<CheckOtpDto> SendOTP(string phoneNumber, string deviceInfo)
+    public async Task<bool> CheckOTP(string phoneNumber, int code)
     {
+        if (phoneNumber == null || code < 0)
+        {
+            return false;
+        }
+
+        var otp = (await _unitOfWork.VerificationCodes.GetAllAsync())
+                         .FirstOrDefault(i => i.PhoneNumber == phoneNumber);
+        if (otp == null)
+        {
+            return false;
+        }
+
+        var otpIsExpired = otp.ExpireDate < LocalTime.GetUtc5Time();
+        if (otpIsExpired)
+        {
+            await _unitOfWork.VerificationCodes.RemoveAsync(otp);
+            await _unitOfWork.SaveAsync();
+            return false;
+        }
+
+        if (otp.Code == code)
+        {
+            await _unitOfWork.VerificationCodes.RemoveAsync(otp);
+            await _unitOfWork.SaveAsync();
+            return true;
+        }
+        return false;
+    }
+
+    public async Task<string> SendOTP(string phoneNumber, string IPAdress)
+    {
+        var otp = (await _unitOfWork.VerificationCodes.GetAllAsync())
+                         .FirstOrDefault(i => i.PhoneNumber == phoneNumber);
+        if (otp != null)
+        {
+            await _unitOfWork.VerificationCodes.RemoveAsync(otp);
+            await _unitOfWork.SaveAsync();
+        }
+
         using var messager = new Message();
         var request = await messager.SendSMSAsync(phoneNumber);
         if (request.Success)
         {
-            CheckOtpDto otp = new()
+            VerificationCode verificationCode = new()
             {
-                VerificationCode = request.Code,
-                SessionKey = $"{deviceInfo}|{request.Code.GetHashCode()}"
+                AddedDate = LocalTime.GetUtc5Time(),
+                ModifiedDate = LocalTime.GetUtc5Time(),
+                IPAdress = IPAdress,
+                ExpireDate = LocalTime.GetUtc5Time().AddMinutes(1),
+                PhoneNumber = phoneNumber,
+                IsDeleted = false,
+                Code = request.Code
             };
 
-            return otp;
+            await _unitOfWork.VerificationCodes.AddAsync(verificationCode);
+            await _unitOfWork.SaveAsync();
+
+            return phoneNumber;
         }
         else
         {

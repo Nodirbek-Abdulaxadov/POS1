@@ -4,6 +4,6 @@ namespace BLL.Interfaces;
 
 public interface IMessageService
 {
-    Task<CheckOtpDto> SendOTP(string phoneNumber, string deviceInfo);
-    Task<bool> CheckOTP(CheckOtpDto otp);
+    Task<string> SendOTP(string phoneNumber, string IPAdress);
+    Task<bool> CheckOTP(string phoneNumber, int code);
 } 

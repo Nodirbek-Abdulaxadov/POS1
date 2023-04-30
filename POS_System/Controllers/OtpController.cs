@@ -1,4 +1,5 @@
 ﻿using BLL.Dtos.MessageDtos;
+using BLL.Helpers;
 using BLL.Interfaces;
 using Core;
 using Microsoft.AspNetCore.Identity;
@@ -45,6 +46,24 @@ public class OtpController : ControllerBase
         }
     }
 
+    [HttpPost("password/{phoneNumber}")]
+    public async Task<IActionResult> GetPassword(string phoneNumber)
+    {
+        var user = _userManager.Users.FirstOrDefault(x => x.PhoneNumber == phoneNumber);
+        if (user == null)
+        {
+            return NotFound();
+        }
+
+        var hasDefaultPassword = await _userManager.CheckPasswordAsync(user, Constants.DEFAULT_PASSWORD);
+        if (hasDefaultPassword)
+        {
+            return StatusCode(423);
+        }
+
+        return Ok();
+    }
+
     [HttpPost("check")]
     public async Task<ActionResult<bool>> Check([FromBody] CheckOtpDto otpDto)
     {
@@ -53,7 +72,7 @@ public class OtpController : ControllerBase
             return BadRequest();
         }
 
-        var result = await _messageService.CheckOTP(otpDto);
+        var result = await _messageService.CheckOTP(otpDto.SessionKey, otpDto.VerificationCode);
         return Ok(result);
     }
 

@@ -26,7 +26,7 @@ public class Message : IDisposable
         int code = GetRandomCode();
         var sms = new SMS()
 		{
-			mobile_phone = phoneNumber,
+			mobile_phone = phoneNumber.Replace("+",""),
 			from = "4546",
 			message = CreateSMS(code),
 			callback_url = "https://software-engineer.uz"
@@ -116,9 +116,6 @@ public class Message : IDisposable
             {code}
 
             Ваш проверочный код:
-            {code}
-
-            Your verification code:
             {code}
             """;
 

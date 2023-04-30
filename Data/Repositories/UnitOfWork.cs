@@ -20,7 +20,8 @@ public class UnitOfWork : IUnitOfWork
                        ISubcategoryInterface subcategory,
                        ISupplierInterface supplierInterface,
                        TransferWarehouseItemInterface transferWarehouseItemInterface,
-                       ITransferInterface transferInterface)
+                       ITransferInterface transferInterface,
+                       IVerificationCodeInterface verificationCodeInterface)
     {
         _dbContext = dbContext;
         Customers = customerInterface;
@@ -36,6 +37,7 @@ public class UnitOfWork : IUnitOfWork
         Suppliers = supplierInterface;
         TransferWarehouseItems = transferWarehouseItemInterface;
         Transfers = transferInterface;
+        VerificationCodes = verificationCodeInterface;
     }
     public ICustomerInterface Customers { get; }
 
@@ -62,6 +64,8 @@ public class UnitOfWork : IUnitOfWork
     public TransferWarehouseItemInterface TransferWarehouseItems { get; }
 
     public ITransferInterface Transfers { get; }
+
+    public IVerificationCodeInterface VerificationCodes { get; }
 
     public void Dispose()
             => GC.SuppressFinalize(this);
