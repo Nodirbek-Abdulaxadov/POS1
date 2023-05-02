@@ -6,7 +6,7 @@ namespace API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[Authorize]
+[Authorize(Roles = "SUPERADMIN,ADMIN")]
 public class UsersController : ControllerBase
 {
     private readonly IUserService _userService;

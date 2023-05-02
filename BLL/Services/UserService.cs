@@ -73,6 +73,10 @@ public class UserService : IUserService
     public async Task<string> LoginUserAsync(LoginUserViewModel viewModel)
     {
         var userExist = await FindUserByPhoneNumberAsync(viewModel.PhoneNumber);
+        if (userExist == null)
+        {
+            throw new ArgumentNullException(nameof(userExist));
+        }
 
         var passwordIsValid = await _userManager.CheckPasswordAsync(userExist, viewModel.Password);
 
@@ -91,14 +95,14 @@ public class UserService : IUserService
         throw new MarketException("Login failed! Incorrect phone number or password!");
     }
 
-    private async Task<AuthResultViewModel> GenerateTokenAsync(User user, RefreshToken refresh)
+    private async Task<AuthResultViewModel> GenerateTokenAsync(User user, RefreshToken? refresh)
     {
         var authClaims = new List<Claim>()
             {
                 new Claim(ClaimTypes.Name, user.UserName??""),
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
-                new Claim(JwtRegisteredClaimNames.UniqueName, user.PhoneNumber),
-                new Claim(JwtRegisteredClaimNames.Sub, user.PhoneNumber),
+                new Claim(JwtRegisteredClaimNames.UniqueName, user.PhoneNumber??""),
+                new Claim(JwtRegisteredClaimNames.Sub, user.PhoneNumber??""),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 
@@ -108,7 +112,7 @@ public class UserService : IUserService
             authClaims.Add(new Claim(ClaimTypes.Role, role));
         }
 
-        var authKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_configuration["JwtSettings:securityKey"]));
+        var authKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_configuration["JwtSettings:securityKey"]??""));
 
         var token = new JwtSecurityToken(
             issuer: _configuration["JwtSettings:Issuer"],
@@ -124,7 +128,7 @@ public class UserService : IUserService
             var rToken = new AuthResultViewModel()
             {
                 FullName = user.FullName,
-                PhoneNumber = user.PhoneNumber,
+                PhoneNumber = user.PhoneNumber ?? "",
                 Token = jwtToken,
                 RefreshToken = refresh.Token,
                 ExpiresAt = token.ValidTo,
@@ -148,7 +152,7 @@ public class UserService : IUserService
         var response = new AuthResultViewModel()
         {
             FullName = user.FullName,
-            PhoneNumber = user.PhoneNumber,
+            PhoneNumber = user.PhoneNumber ?? "",
             Token = jwtToken,
             RefreshToken = refreshToken.Token,
             ExpiresAt = token.ValidTo,
@@ -168,6 +172,11 @@ public class UserService : IUserService
         }
 
         var user = await _userManager.FindByIdAsync(storedToken.UserId.ToString());
+
+        if (user == null)
+        {
+            throw new ArgumentNullException(nameof(viewModel));
+        }
 
         try
         {
@@ -224,5 +233,18 @@ public class UserService : IUserService
         }
 
         return result;
+    }
+
+    public async Task UpdateUserAsync(UpdateUserViewModel viewModel)
+    {
+        var user = await _userManager.FindByIdAsync(viewModel.Id);
+        if (user == null)
+        {
+            throw new MarketException(nameof(viewModel));
+        }
+        user.FullName = viewModel.FullName;
+        user.PhoneNumber = viewModel.PhoneNumber;
+        user.UserName = viewModel.FullName.Replace(" ", "");
+        await _userManager.UpdateAsync(user);
     }
 }

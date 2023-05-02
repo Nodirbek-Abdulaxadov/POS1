@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\images\\bg.png"
     },
     {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\POS_System\\wwwroot\\images\\bg.svg",
+      "PackagePath": "staticwebassets\\images\\bg.svg"
+    },
+    {
       "Id": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\POS_System\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

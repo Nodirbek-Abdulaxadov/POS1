@@ -383,10 +383,6 @@ namespace DataLayer.Migrations
                     b.Property<DateTime>("AddedDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<DateTime>("CreatedDate")
-                        .HasMaxLength(30)
-                        .HasColumnType("timestamp without time zone");
-
                     b.Property<decimal>("Discount")
                         .HasColumnType("numeric");
 

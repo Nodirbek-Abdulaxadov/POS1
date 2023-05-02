@@ -18,7 +18,6 @@ public class ReceiptDto : BaseDto
     public static explicit operator ReceiptDto(Receipt v)
         => new ReceiptDto()
         {
-            CreatedDate = v.CreatedDate,
             TotalPrice = v.TotalPrice,
             Discount = v.Discount,
             PaidCash = v.PaidCash,
@@ -33,7 +32,6 @@ public class ReceiptDto : BaseDto
     public static explicit operator Receipt(ReceiptDto v)
         => new Receipt()
         {
-            CreatedDate = v.CreatedDate,
             TotalPrice = v.TotalPrice,
             Discount = v.Discount,
             PaidCash = v.PaidCash,

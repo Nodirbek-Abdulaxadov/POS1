@@ -18,7 +18,6 @@ public class AddReceiptDto
     public static explicit operator Receipt(AddReceiptDto v)
         => new Receipt()
         {
-            CreatedDate = v.CreatedDate,
             TotalPrice = v.TotalPrice,
             Discount = v.Discount,
             PaidCash = v.PaidCash,

@@ -1,6 +1,7 @@
 ﻿using BLL.Dtos.Identity;
 using BLL.Interfaces;
 using BLL.Validations;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -20,6 +21,7 @@ namespace API.Controllers
         }
 
         [HttpPost("register")]
+        [Authorize(Roles = "SUPERADMIN,ADMIN")]
         public async Task<ActionResult<UserDto>> Register([FromBody] RegisterUserViewModel viewModel)
         {
             try
@@ -36,6 +38,25 @@ namespace API.Controllers
             catch (Exception ex)
             {
                 _logger.LogError("\n" + ex.Message.Substring(0, 100));
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("update")]
+        [Authorize(Roles = "SUPERADMIN,ADMIN")]
+        public async Task<IActionResult> Update(UpdateUserViewModel viewModel)
+        {
+            try
+            {
+                await _userService.UpdateUserAsync(viewModel);
+                return Ok();
+            }
+            catch (MarketException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
                 return BadRequest(ex.Message);
             }
         }

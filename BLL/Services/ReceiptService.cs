@@ -40,4 +40,6 @@ public class ReceiptService : IReceiptService
 
         return (ReceiptDto)receipt;
     }
+
+
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ans24hzRm/51Y2Gz2c11IEqb9AxIB12Wv13KIjKL558=",
+  "Hash": "N0EAqO4Lcc+FwNfW75NwtL64REr5Bio0bO2NaCfksZQ=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\bg.png"
+    },
+    {
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\POS_System\\wwwroot\\images\\bg.svg",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\POS_System\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "images/bg.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\bg.svg"
     },
     {
       "Identity": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\POS_System\\wwwroot\\js\\site.js",
