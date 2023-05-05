@@ -5,10 +5,11 @@ namespace DataLayer.Entities.Selling;
 public class Loan : BaseEntity
 {
     [Required]
-    [StringLength(30)]
-    public string GivenDate { get; set; } = string.Empty;
+    public decimal PaidCash { get; set; }
     [Required]
-    public decimal PaidAmount { get; set; }
+    public decimal PaidCard { get; set; }
+    [Required]
+    public decimal TotalPayment { get; set; }
     [Required]
     public decimal LeftAmount { get; set; }
 
@@ -16,6 +17,7 @@ public class Loan : BaseEntity
     public int ReceiptId { get; set; }
     [Required]
     public int CustomerId { get; set; }
+    public string SellerId { get; set; } = string.Empty;
 
 
     public IEnumerable<LoanPayment> LoanPayments = new List<LoanPayment>();

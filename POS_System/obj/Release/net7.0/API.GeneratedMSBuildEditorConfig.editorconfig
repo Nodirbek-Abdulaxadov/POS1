@@ -9,9 +9,41 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = API
 build_property.RootNamespace = API
-build_property.ProjectDir = C:\Users\Nodirbek\Desktop\POS-System\POS_System\
+build_property.ProjectDir = C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\POS_System\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Nodirbek\Desktop\POS-System\POS_System
+build_property.MSBuildProjectDirectory = C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\POS_System
 build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Nodirbek/Desktop/ZAKAZ/POS1/POS_System/Areas/Security/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Nodirbek/Desktop/ZAKAZ/POS1/POS_System/Areas/Security/Views/Home/Verify.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcSG9tZVxWZXJpZnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Nodirbek/Desktop/ZAKAZ/POS1/POS_System/Areas/Security/Views/Passwords/Change.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcUGFzc3dvcmRzXENoYW5nZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Nodirbek/Desktop/ZAKAZ/POS1/POS_System/Areas/Security/Views/Passwords/Setup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcUGFzc3dvcmRzXFNldHVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Nodirbek/Desktop/ZAKAZ/POS1/POS_System/Areas/Security/Views/Passwords/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcUGFzc3dvcmRzXFN1Y2Nlc3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Nodirbek/Desktop/ZAKAZ/POS1/POS_System/Areas/Security/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Nodirbek/Desktop/ZAKAZ/POS1/POS_System/Areas/Security/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Nodirbek/Desktop/ZAKAZ/POS1/POS_System/Areas/Security/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

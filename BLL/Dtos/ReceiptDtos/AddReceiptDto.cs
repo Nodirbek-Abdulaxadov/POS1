@@ -1,4 +1,5 @@
 ﻿using BLL.Dtos.TransactionDtos;
+using BLL.Helpers;
 using DataLayer.Entities.Selling;
 
 namespace BLL.Dtos.ReceiptDtos;
@@ -24,6 +25,8 @@ public class AddReceiptDto
             PaidCard = v.PaidCard,
             HasLoan = v.HasLoan,
             SellerId = v.SellerId,
-            IsDeleted = false
+            IsDeleted = false,
+            AddedDate = LocalTime.GetUtc5Time(),
+            ModifiedDate = LocalTime.GetUtc5Time()
         };
 }

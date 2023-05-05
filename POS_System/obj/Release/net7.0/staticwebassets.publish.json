@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "Hash": "glL5RLi1miBi+NRk+LcWHc39xEh1pXM/DY5hyUdc9fc=",
+  "Source": "API",
+  "BasePath": "_content/API",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "API\\wwwroot",
+      "Source": "API",
+      "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\POS_System\\wwwroot\\",
+      "BasePath": "_content/API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\POS_System\\wwwroot\\css\\site.css",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\POS_System\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "css/site.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\POS_System\\wwwroot\\images\\bg.png",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\POS_System\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "images/bg.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\bg.png"
+    },
+    {
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\POS_System\\wwwroot\\images\\bg.svg",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\POS_System\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "images/bg.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\bg.svg"
+    },
+    {
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\POS_System\\wwwroot\\js\\site.js",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\ZAKAZ\\POS1\\POS_System\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "js/site.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\site.js"
+    }
+  ]
+}

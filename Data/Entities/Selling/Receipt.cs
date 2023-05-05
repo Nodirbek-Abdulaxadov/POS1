@@ -17,6 +17,7 @@ public class Receipt : BaseEntity
 
     [Required]
     public string SellerId { get; set; } = string.Empty;
+    public int WarehouseId { get; set; }
 
 
     public Loan Loan = new Loan();

@@ -310,11 +310,6 @@ namespace DataLayer.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("GivenDate")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("character varying(30)");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
@@ -324,11 +319,21 @@ namespace DataLayer.Migrations
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<decimal>("PaidAmount")
+                    b.Property<decimal>("PaidCard")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("PaidCash")
                         .HasColumnType("numeric");
 
                     b.Property<int>("ReceiptId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("SellerId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<decimal>("TotalPayment")
+                        .HasColumnType("numeric");
 
                     b.HasKey("Id");
 
@@ -355,17 +360,18 @@ namespace DataLayer.Migrations
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<decimal>("PaidAmount")
+                    b.Property<decimal>("PaidCard")
                         .HasColumnType("numeric");
 
-                    b.Property<string>("PaidDate")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("character varying(30)");
+                    b.Property<decimal>("PaidCash")
+                        .HasColumnType("numeric");
 
                     b.Property<string>("SellerId")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<decimal>("TotalPayment")
+                        .HasColumnType("numeric");
 
                     b.HasKey("Id");
 
@@ -408,6 +414,9 @@ namespace DataLayer.Migrations
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("numeric");
 
+                    b.Property<int>("WarehouseId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.ToTable("Receipts");
@@ -432,6 +441,13 @@ namespace DataLayer.Migrations
 
                     b.Property<int>("ProductId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("ProductName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<decimal>("ProductPrice")
+                        .HasColumnType("numeric");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("integer");
