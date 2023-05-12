@@ -21,6 +21,7 @@ namespace Seller.App.ViewModels
         {
             Transactions.Add(new TransactionDto()
             {
+                Id = dProduct.Id,
                 Barcode = dProduct.Barcode,
                 Description = dProduct.Description,
                 MadeIn = dProduct.MadeIn,

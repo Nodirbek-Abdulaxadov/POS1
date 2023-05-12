@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="assets\add_loan.png" />
     <None Remove="assets\barcode.png" />
     <None Remove="assets\close.png" />
     <None Remove="assets\debt.png" />
@@ -19,6 +20,7 @@
     <None Remove="assets\logout.png" />
     <None Remove="assets\logout_left.png" />
     <None Remove="assets\minus.png" />
+    <None Remove="assets\pay_loan.png" />
     <None Remove="assets\plus.png" />
     <None Remove="assets\printer.png" />
     <None Remove="assets\rbox.png" />
@@ -30,9 +32,13 @@
     <None Remove="assets\trash.png" />
     <None Remove="assets\user.png" />
     <None Remove="assets\xclose.png" />
+    <None Remove="assets\x_black.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="assets\add_loan.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="assets\barcode.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -46,6 +52,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="assets\logout_left.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\pay_loan.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="assets\printer.png">
@@ -124,6 +133,9 @@
     </Resource>
     <Resource Include="assets\xclose.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\x_black.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 

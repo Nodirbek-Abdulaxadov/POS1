@@ -10,7 +10,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerService _customerService;
@@ -155,8 +155,8 @@ namespace API.Controllers
         {
             try
             {
-                var result = await _customerService.AddAsync(model);
-                return StatusCode(201, result);
+                var res = await _customerService.AddAsync(model);
+                return StatusCode(201, res);
             }
             catch (Exception ex)
             {

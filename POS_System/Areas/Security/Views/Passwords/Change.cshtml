@@ -11,17 +11,17 @@
             <input asp-for="PhoneNumber" type="hidden" class="form-control" value="@Model.PhoneNumber">
             <div class="mb-3" style="width: 80%; margin: 0 auto;">
                 <label for="tel" class="form-label">Joriy parol:</label>
-                <input asp-for="CurrentPassword" type="number" class="form-control" id="tel" placeholder="00000">
+                <input asp-for="CurrentPassword" type="password" class="form-control" id="tel" placeholder="00000">
                 <span asp-validation-for="CurrentPassword" class="form-text text-danger"></span>
             </div>
             <div class="mb-3" style="width: 80%; margin: 0 auto;">
                 <label for="tel" class="form-label">Yangi parol yarating:</label>
-                <input asp-for="Password" type="number" class="form-control" id="tel" placeholder="00000">
+                <input asp-for="Password" type="password" class="form-control" id="tel" placeholder="00000">
                 <span asp-validation-for="Password" class="form-text text-danger"></span>
             </div>
             <div class="mb-3" style="width: 80%; margin: 0 auto;">
                 <label for="tel" class="form-label">Parolni qayta kiriting:</label>
-                <input asp-for="ConfirmPassword" type="number" class="form-control" id="tel" placeholder="00000">
+                <input asp-for="ConfirmPassword" type="password" class="form-control" id="tel" placeholder="00000">
                 <span asp-validation-for="ConfirmPassword" class="form-text text-danger"></span>
             </div>
             <br />

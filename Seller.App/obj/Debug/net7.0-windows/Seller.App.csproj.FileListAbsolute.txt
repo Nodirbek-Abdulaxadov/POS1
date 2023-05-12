@@ -223,3 +223,7 @@ C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\Seller.App\obj\Debug\net7.0-windows\refint\
 C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\Seller.App\obj\Debug\net7.0-windows\Seller.App.pdb
 C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\Seller.App\obj\Debug\net7.0-windows\Seller.App.genruntimeconfig.cache
 C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\Seller.App\obj\Debug\net7.0-windows\ref\Seller.App.dll
+C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\Seller.App\obj\Debug\net7.0-windows\Pages\Loan.g.cs
+C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\Seller.App\obj\Debug\net7.0-windows\Pages\Loan.baml
+C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\Seller.App\obj\Debug\net7.0-windows\Pages\AddCustomer.g.cs
+C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\Seller.App\obj\Debug\net7.0-windows\Pages\AddCustomer.baml

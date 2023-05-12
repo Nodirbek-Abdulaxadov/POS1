@@ -30,8 +30,7 @@ public class ProductAPIService : IDisposable
             return JsonConvert.DeserializeObject<List<DProduct>>(res);
         }
         
-
-        return null;
+        return new List<DProduct>();
     }
 
     public void Dispose()

@@ -182,6 +182,8 @@ public class ProductService : IProductService
         foreach (var product in products)
         {
             var productItems = warehouseItems.Where(d => d.ProductId == product.Id);
+            if (!productItems.Any())
+            { continue; }
             var warItem = productItems.First();
             var model = new DProduct()
             {

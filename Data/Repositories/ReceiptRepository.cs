@@ -42,7 +42,8 @@ public class ReceiptRepository : Repository<Receipt>, IReceiptInterface
                 WarehouseName = (warehouse??new Warehouse()).Name
             };
 
-            receiptView.Transactions.AddRange(transactions.Where(t => t.ReceiptId == receipt.Id).Select(r =>
+            receiptView.Transactions.AddRange(transactions.Where(t => t.ReceiptId == receipt.Id)
+                .Select(r =>
             {
                 var product = products.FirstOrDefault(p => p.Id == r.ProductId)??new Product();
                 var warehouseItem = warehouseItems.FirstOrDefault(w => w.ProductId == product.Id)??new WarehouseItem();

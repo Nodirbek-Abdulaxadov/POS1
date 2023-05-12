@@ -1,6 +1,10 @@
 ﻿using BLL.Dtos.Identity;
+using Newtonsoft.Json;
 using System;
+using System.IdentityModel.Tokens.Jwt;
 using System.IO;
+using System.Linq;
+using System.Security.Claims;
 
 namespace Seller.App.Services;
 
@@ -65,9 +69,14 @@ public class TokenService : IDisposable
         return number;
     }
 
-    //public string GetUserId()
-    //{   
-    //}
+    public string GetUserId()
+    {
+        var handler = new JwtSecurityTokenHandler();
+        var jwtSecurityToken = handler.ReadJwtToken(GetToken());
+        var tokenS = jwtSecurityToken as JwtSecurityToken;
+        var jti = tokenS.Claims.First(c => c.Type == ClaimTypes.NameIdentifier);
+        return jti.Value;
+    }
 
     private void Write(string path, string content)
     {

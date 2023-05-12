@@ -8,4 +8,5 @@ public class AddLoanDto
     public decimal LeftAmount { get; set; }
     public int ReceiptId { get; set; }
     public int CustomerId { get; set; }
+    public string SellerId { get; set; } = string.Empty;
 }

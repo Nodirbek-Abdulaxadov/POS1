@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -70,7 +71,7 @@ namespace Seller.App.Pages
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-           // Load();
+           Load();
         }
 
         private void GetProductViews()
@@ -89,7 +90,7 @@ namespace Seller.App.Pages
 
         private void Load()
         {
-            //CheckNetwork();
+            CheckNetwork();
             Thread t = new Thread(GetProductViews);
             t.SetApartmentState(ApartmentState.STA);
             t.IsBackground = true;
@@ -214,10 +215,10 @@ namespace Seller.App.Pages
         private void refresh_Click(object sender, RoutedEventArgs e)
         {
             vm.Transactions.Clear();
-            total.Clear();
-            naqd.Clear();
-            plastik.Clear();
-            chegirma.Clear();
+            total.Text = "0";
+            naqd.Text = "0";
+            plastik.Text = "0";
+            chegirma.Text = "0";
             barcode_input.Clear();
             Load();
         }
@@ -253,7 +254,6 @@ namespace Seller.App.Pages
                     receipt.Discount = decimal.Parse(chegirma.Text.Replace(" ", ""));
                     receipt.PaidCard = decimal.Parse(plastik.Text.Replace(" ", ""));
                     receipt.PaidCash = decimal.Parse(naqd.Text.Replace(" ", ""));
-                    receipt.CreatedDate = DateTime.Now;
                     receipt.TotalPrice = jami;
                     receipt.HasLoan = false;
                     receipt.Transactions.AddRange(vm.Transactions.ToList());
@@ -278,6 +278,10 @@ namespace Seller.App.Pages
                         notifier.ShowError(ex.Message);
                     }
                     }
+                else
+                      {
+                          notifier.ShowWarning("To'lov ma'lumotlarini kiriting!");
+                      }
                 }));
         }
 
@@ -334,21 +338,15 @@ namespace Seller.App.Pages
             {
                 case 1: 
                     {
-                        if (naqd.Text == "0") naqd.Clear();
-                        naqd.Text += number;
                         naqd.Text = naqd.Text.ToMoneyFormat();
                     } break;
                 case 2:
                     {
-                        if (plastik.Text == "0") plastik.Clear();
-                        plastik.Text += number;
                         plastik.Text = plastik.Text.ToMoneyFormat();
                     }
                     break;
                 case 3:
                     {
-                        if (chegirma.Text == "0") chegirma.Clear();
-                        chegirma.Text += number;
                         chegirma.Text = chegirma.Text.ToMoneyFormat();
                     }
                     break;
@@ -396,7 +394,31 @@ namespace Seller.App.Pages
 
         private void naqd_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var textBox = (TextBox)sender; 
+
+            SetTotalPrice();
+        }
+
+        private void close_btn_Click(object sender, RoutedEventArgs e)
+        {
+            var messageBox = new MaterialMessageBox("Are you sure exit app!", MessageType.Confirmation, MessageButtons.YesNo);
+            var result = messageBox.ShowDialog();
+            if (result == true)
+            {
+                Application.Current.Shutdown();
+            }
+        }
+
+        private void loan_Click(object sender, RoutedEventArgs e)
+        {
+            Loan loan = new Loan();
+            Application.Current.MainWindow.Opacity = 0.5;
+            loan.ShowDialog();
+            Application.Current.MainWindow.Opacity = 1;
+        }
+
+        private void naqd_LostFocus(object sender, RoutedEventArgs e)
+        {
+            var textBox = (TextBox)sender;
             switch (activeTextboxIndex)
             {
                 case 1:
@@ -416,20 +438,15 @@ namespace Seller.App.Pages
                     break;
                 case 4:
                     {
-
-                    }break;
+                        
+                    }
+                    break;
             }
-            SetTotalPrice();
         }
 
-        private void close_btn_Click(object sender, RoutedEventArgs e)
+        private void naqd_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            var messageBox = new MaterialMessageBox("Are you sure exit app!", MessageType.Confirmation, MessageButtons.YesNo);
-            var result = messageBox.ShowDialog();
-            if (result == true)
-            {
-                Application.Current.Shutdown();
-            }
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
         }
     }
 }

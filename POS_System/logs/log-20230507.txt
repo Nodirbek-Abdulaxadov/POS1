@@ -1,0 +1,76 @@
+2023-05-07 00:09:36.680 +05:00 [INF] 
+Token refreshed!
+2023-05-07 00:09:58.164 +05:00 [INF] 
+Token refreshed!
+2023-05-07 00:17:01.035 +05:00 [INF] 
+Token refreshed!
+2023-05-07 00:18:03.424 +05:00 [INF] 
+Token refreshed!
+2023-05-07 00:19:56.525 +05:00 [INF] 
+Token refreshed!
+2023-05-07 00:28:38.490 +05:00 [INF] 
+Token refreshed!
+2023-05-07 00:30:49.945 +05:00 [INF] 
+Token refreshed!
+2023-05-07 00:33:01.050 +05:00 [INF] 
+Token refreshed!
+2023-05-07 00:33:20.896 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.TypeLoadException: Could not load type 'BLL.Dtos.Identity.UpdateUserViewModel' from assembly 'BLL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' due to value type mismatch.
+   at System.Signature.GetSignature(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+   at System.Signature..ctor(Void* pCorSig, Int32 cCorSig, RuntimeType declaringType)
+   at System.Reflection.RuntimePropertyInfo.get_Signature()
+   at System.Reflection.RuntimePropertyInfo.get_PropertyType()
+   at Microsoft.Extensions.Internal.PropertyHelper.IsRefStructProperty(PropertyInfo property)
+   at Microsoft.Extensions.Internal.PropertyHelper.IsInterestingProperty(PropertyInfo property)
+   at Microsoft.Extensions.Internal.PropertyHelper.<GetProperties>g__AddInterestingProperties|40_0(List`1 propertyHelpers, Type type)
+   at Microsoft.Extensions.Internal.PropertyHelper.GetProperties(Type type, ConcurrentDictionary`2 cache)
+   at Microsoft.Extensions.Internal.PropertyHelper.GetVisibleProperties(Type type, ConcurrentDictionary`2 allPropertiesCache, ConcurrentDictionary`2 visiblePropertiesCache)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelMetadataProvider.CreatePropertyDetails(ModelMetadataIdentity key)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelMetadataProvider.GetMetadataForProperties(Type modelType)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelMetadata.get_Properties()
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider.GetBinder(ModelBinderProviderContext context)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory.CreateBinderCoreUncached(DefaultModelBinderProviderContext providerContext, Object token)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory.CreateBinder(ModelBinderFactoryContext context)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.GetParameterBindingInfo(IModelBinderFactory modelBinderFactory, IModelMetadataProvider modelMetadataProvider, ControllerActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.CreateBinderDelegate(ParameterBinder parameterBinder, IModelBinderFactory modelBinderFactory, IModelMetadataProvider modelMetadataProvider, ControllerActionDescriptor actionDescriptor, MvcOptions mvcOptions)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvokerCache.GetCachedResult(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Routing.ControllerRequestDelegateFactory.<>c__DisplayClass12_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-05-07 00:34:20.454 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.TypeLoadException: Could not load type 'BLL.Dtos.Identity.UpdateUserViewModel' from assembly 'BLL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' due to value type mismatch.
+   at System.Signature.GetSignature(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+   at System.Signature..ctor(Void* pCorSig, Int32 cCorSig, RuntimeType declaringType)
+   at System.Reflection.RuntimePropertyInfo.get_Signature()
+   at System.Reflection.RuntimePropertyInfo.get_PropertyType()
+   at Microsoft.Extensions.Internal.PropertyHelper.IsRefStructProperty(PropertyInfo property)
+   at Microsoft.Extensions.Internal.PropertyHelper.IsInterestingProperty(PropertyInfo property)
+   at Microsoft.Extensions.Internal.PropertyHelper.<GetProperties>g__AddInterestingProperties|40_0(List`1 propertyHelpers, Type type)
+   at Microsoft.Extensions.Internal.PropertyHelper.GetProperties(Type type, ConcurrentDictionary`2 cache)
+   at Microsoft.Extensions.Internal.PropertyHelper.GetVisibleProperties(Type type, ConcurrentDictionary`2 allPropertiesCache, ConcurrentDictionary`2 visiblePropertiesCache)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelMetadataProvider.CreatePropertyDetails(ModelMetadataIdentity key)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelMetadataProvider.GetMetadataForProperties(Type modelType)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelMetadata.get_Properties()
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider.GetBinder(ModelBinderProviderContext context)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory.CreateBinderCoreUncached(DefaultModelBinderProviderContext providerContext, Object token)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory.CreateBinder(ModelBinderFactoryContext context)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.GetParameterBindingInfo(IModelBinderFactory modelBinderFactory, IModelMetadataProvider modelMetadataProvider, ControllerActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.CreateBinderDelegate(ParameterBinder parameterBinder, IModelBinderFactory modelBinderFactory, IModelMetadataProvider modelMetadataProvider, ControllerActionDescriptor actionDescriptor, MvcOptions mvcOptions)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvokerCache.GetCachedResult(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Routing.ControllerRequestDelegateFactory.<>c__DisplayClass12_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-05-07 00:34:54.856 +05:00 [INF] 
+Token refreshed!

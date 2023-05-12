@@ -3,6 +3,7 @@ using BLL.Dtos.TransactionDtos;
 using BLL.Dtos.WarehouseDtos;
 using BLL.Interfaces;
 using BLL.Validations;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;

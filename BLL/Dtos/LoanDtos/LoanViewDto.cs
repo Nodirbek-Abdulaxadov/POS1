@@ -11,7 +11,7 @@ public class LoanViewDto : BaseDto
     public int ReceiptId { get; set; }
     public int CustomerId { get; set; }
     public string CustomerFullName { get; set; } = string.Empty;
-    public int SellerId { get; set; }
+    public string SellerId { get; set; }
     public string SellerFullName { get; set; } = string.Empty;
 
     public List<LoanPaymentViewDto> Payments = new();

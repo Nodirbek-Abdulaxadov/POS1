@@ -1,8 +1,10 @@
 ﻿using BLL.Dtos.Identity;
 using BLL.Dtos.ReceiptDtos;
+using BLL.Dtos.TransactionDtos;
 using Newtonsoft.Json;
 using Seller.App.Models;
 using System;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,12 +25,22 @@ public class SellingService : IDisposable
 
     public async Task<ReceiptDto> AddAsync(AddReceiptDto dto)
     {
-        var json = JsonConvert.SerializeObject(dto.Transactions);
+        var items = dto.Transactions.Select(i => new TransactionAsReceiptItemDto()
+        {
+            ProductId = i.Id,
+            Quantity = i.Quantity,
+            TotalPrice = i.Quantity * i.Price,
+            ProductName = i.Name,
+            ProductPrice = i.Price
+        });
+        var json = JsonConvert.SerializeObject(items);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+        var totalPrice = items.Sum(i => i.TotalPrice);
 
         using var httpClient = new HttpClient();
         using var response = await httpClient.PostAsync(
-            $"{Constants.BASE_URL}Receipt??CreatedDate={dto.CreatedDate}&TotalPrice={dto.TotalPrice}&Discount={dto.Discount}&PaidCash={dto.PaidCash}&PaidCard={dto.PaidCard}&HasLoan={dto.HasLoan}&SellerId={dto.SellerId}", 
+            $"{Constants.BASE_URL}Receipt?TotalPrice={totalPrice}&Discount={dto.Discount}&PaidCash={dto.PaidCash}&PaidCard={dto.PaidCard}&HasLoan={dto.HasLoan}&SellerId={tokenService.GetUserId()}", 
             content);
         
         if (response.IsSuccessStatusCode)

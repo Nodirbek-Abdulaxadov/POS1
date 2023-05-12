@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\Seller.App\App.xaml
-9-1283324730
+111825675318
 
-23147689812
+27-305116041
 357-1281732067
-Components\Loader.xaml;Components\MaterialMessageBox.xaml;MainWindow.xaml;Pages\ForgotPassword.xaml;Pages\LanguageSettings.xaml;Pages\OTP.xaml;Pages\PrinterSettings.xaml;Pages\Selling.xaml;Pages\Settings.xaml;
+Components\Loader.xaml;Components\MaterialMessageBox.xaml;MainWindow.xaml;Pages\AddCustomer.xaml;Pages\ForgotPassword.xaml;Pages\LanguageSettings.xaml;Pages\Loan.xaml;Pages\OTP.xaml;Pages\PrinterSettings.xaml;Pages\Selling.xaml;Pages\Settings.xaml;
 
 False
 

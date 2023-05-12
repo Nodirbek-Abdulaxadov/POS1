@@ -39,6 +39,8 @@ public class ReceiptService : IReceiptService
                 IsDeleted = false,
                 ModifiedDate = LocalTime.GetUtc5Time(),
                 ProductId = item.ProductId,
+                ProductPrice = item.ProductPrice,
+                ProductName = item.ProductName,
                 Quantity = item.Quantity,
                 ReceiptId = receipt.Id,
                 TotalPrice = item.TotalPrice
@@ -46,13 +48,52 @@ public class ReceiptService : IReceiptService
             transaction = await _unitOfWork.Transactions.AddAsync(transaction);
             await _unitOfWork.SaveAsync();
 
-            var warehouseItem = (await _unitOfWork.WarehouseItems.GetAllAsync())
-                                .OrderByDescending(x => x.ModifiedDate)
+            var warehouseItem = warehouseItems.OrderByDescending(x => x.ModifiedDate)
                                 .FirstOrDefault(i => i.ProductId == transaction.ProductId);
-            warehouseItem.Quantity -= item.Quantity;
-            warehouseItem.ModifiedDate = LocalTime.GetUtc5Time();
-            await _unitOfWork.WarehouseItems.UpdateAsync(warehouseItem);
+
+            var quantity = item.Quantity;
+            var product = products.FirstOrDefault(p => p.Id == item.ProductId);
+            product.Quantity -= quantity;
+            await _unitOfWork.Products.UpdateAsync(product);
             await _unitOfWork.SaveAsync();
+            if (warehouseItem.Quantity > quantity)
+            {
+                warehouseItem.Quantity -= item.Quantity;
+                warehouseItem.ModifiedDate = LocalTime.GetUtc5Time();
+                await _unitOfWork.WarehouseItems.UpdateAsync(warehouseItem);
+                await _unitOfWork.SaveAsync();
+            }
+            else
+            {
+                var warehouseItemsForItem = warehouseItems.Where(i => i.ProductId == item.ProductId)
+                                                          .OrderByDescending(x => x.ModifiedDate);
+
+                foreach (var wItem in warehouseItemsForItem)
+                {
+                    if (quantity < 1)
+                    {
+                        break;
+                    }
+
+                    if (wItem.Quantity >= quantity)
+                    {
+                        wItem.Quantity -= quantity;
+                        wItem.ModifiedDate = LocalTime.GetUtc5Time();
+                        await _unitOfWork.WarehouseItems.UpdateAsync(wItem);
+                        await _unitOfWork.SaveAsync();
+                        break;
+                    }
+                    else
+                    {
+                        wItem.Quantity = 0;
+                        wItem.ModifiedDate = LocalTime.GetUtc5Time();
+                        await _unitOfWork.WarehouseItems.UpdateAsync(wItem);
+                        await _unitOfWork.SaveAsync();
+                        quantity -= wItem.Quantity;
+                    }
+                }
+            }
+
         }
 
         return (ReceiptDto)receipt;
@@ -68,7 +109,7 @@ public class ReceiptService : IReceiptService
                                                        i.SellerFullName = seller==null? "Noma'lum" : seller.FullName;
                                                        return i;
                                                    })
-                                                   .OrderBy(d => d.AddedDate)
+                                                   .OrderByDescending(d => d.AddedDate)
                                                    .ToList();
 
         if (dtoList.Count == 0)

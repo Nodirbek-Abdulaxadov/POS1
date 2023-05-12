@@ -51,10 +51,12 @@
                                 <TextBox BorderBrush="Black"
                                          FontSize="18"
                                          x:Name="naqd"
+                                         PreviewTextInput="naqd_PreviewTextInput"
                                          GotFocus="tb_GotFocus"
                                          Uid="1"
                                          Text="0"
-                                         TextChanged="naqd_TextChanged"></TextBox>
+                                         TextChanged="naqd_TextChanged" 
+                                         LostFocus="naqd_LostFocus"></TextBox>
                             </materialDesign:Card>
                         </StackPanel>
                     </Grid>
@@ -71,8 +73,10 @@
                                          FontSize="18"
                                          x:Name="plastik"
                                          GotFocus="tb_GotFocus"
+                                         PreviewTextInput="naqd_PreviewTextInput"
                                          Uid="2"
                                          Text="0"
+                                         LostFocus="naqd_LostFocus"
                                          TextChanged="naqd_TextChanged"></TextBox>
                             </materialDesign:Card>
                         </StackPanel>
@@ -90,8 +94,10 @@
                                          FontSize="18"
                                          x:Name="chegirma"
                                          GotFocus="tb_GotFocus"
+                                         PreviewTextInput="naqd_PreviewTextInput"
                                          Uid="3"
                                          Text="0"
+                                         LostFocus="naqd_LostFocus"
                                          TextChanged="naqd_TextChanged"></TextBox>
                             </materialDesign:Card>
                         </StackPanel>
@@ -128,19 +134,15 @@
                         <materialDesign:DataGridTextColumn Header="Barcode"
                                                            Binding="{Binding Barcode}"
                                                            FontSize="15"
-                                                           Width="*"/>
+                                                           Width="0.8*"/>
                         <materialDesign:DataGridTextColumn Header="Nomi"
                                                            FontSize="15"
                                                            Width="*"
                                                            Binding="{Binding Name}"/>
-                        <materialDesign:DataGridTextColumn Header="Rangi"
+                        <materialDesign:DataGridTextColumn Header="Ishlab chiqarilgan"
                                                            FontSize="15"
-                                                           Width="0.45*"
-                                                           Binding="{Binding Color}"/>
-                        <materialDesign:DataGridTextColumn Header="O'lchami"
-                                                           FontSize="15"
-                                                           Width="0.6*"
-                                                           Binding="{Binding Size}"/>
+                                                           Width="0.8*"
+                                                           Binding="{Binding MadeIn}"/>
                         <materialDesign:DataGridTextColumn Header="Narxi"
                                                            FontSize="15"
                                                            Width="0.6*"
@@ -183,9 +185,9 @@
                         </DataGridTemplateColumn>
                         <materialDesign:DataGridTextColumn Header="Jami narxi"
                                                            Binding="{Binding TotalPrice}"
-                                                           Width="0.8*"
+                                                           Width="0.7*"
                                                            FontSize="15"/>
-                        <DataGridTemplateColumn Header="O'chirish" Width="0.6*">
+                        <DataGridTemplateColumn Header="O'chirish" Width="0.5*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Padding="2"
@@ -292,7 +294,8 @@
                             <TextBox Padding="10,2"
                                      FontSize="40"
                                      FontWeight="Bold"
-                                     x:Name="barcode_input"                                     
+                                     x:Name="barcode_input"     
+                                     PreviewTextInput="naqd_PreviewTextInput"                                
                                      GotFocus="tb_GotFocus"
                                      Uid="4">
                             </TextBox>
@@ -465,6 +468,8 @@
                         <Button Grid.Column="1"
                                 Height="80"
                                 Margin="5,0"
+                                x:Name="loan"
+                                Click="loan_Click"
                                 >
                             <StackPanel>
                                 <Image Height="50" Source="/assets/debt.png"/>
