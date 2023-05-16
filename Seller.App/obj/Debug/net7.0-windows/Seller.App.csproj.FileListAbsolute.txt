@@ -227,3 +227,7 @@ C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\Seller.App\obj\Debug\net7.0-windows\Pages\L
 C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\Seller.App\obj\Debug\net7.0-windows\Pages\Loan.baml
 C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\Seller.App\obj\Debug\net7.0-windows\Pages\AddCustomer.g.cs
 C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\Seller.App\obj\Debug\net7.0-windows\Pages\AddCustomer.baml
+C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\Seller.App\obj\Debug\net7.0-windows\Pages\Customers.g.cs
+C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\Seller.App\obj\Debug\net7.0-windows\Pages\Customers.baml
+C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\Seller.App\obj\Debug\net7.0-windows\Pages\LoanGive.g.cs
+C:\Users\Nodirbek\Desktop\ZAKAZ\POS1\Seller.App\obj\Debug\net7.0-windows\Pages\LoanGive.baml

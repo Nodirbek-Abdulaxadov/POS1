@@ -31,6 +31,7 @@
     <None Remove="assets\translate.png" />
     <None Remove="assets\trash.png" />
     <None Remove="assets\user.png" />
+    <None Remove="assets\users.png" />
     <None Remove="assets\xclose.png" />
     <None Remove="assets\x_black.png" />
   </ItemGroup>
@@ -129,6 +130,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="assets\user.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\users.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="assets\xclose.png">

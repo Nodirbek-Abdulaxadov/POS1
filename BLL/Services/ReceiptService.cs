@@ -48,11 +48,16 @@ public class ReceiptService : IReceiptService
             transaction = await _unitOfWork.Transactions.AddAsync(transaction);
             await _unitOfWork.SaveAsync();
 
-            var warehouseItem = warehouseItems.OrderByDescending(x => x.ModifiedDate)
+            var warehouseItem = warehouseItems.OrderBy(x => x.IncomingPrice)
                                 .FirstOrDefault(i => i.ProductId == transaction.ProductId);
 
             var quantity = item.Quantity;
             var product = products.FirstOrDefault(p => p.Id == item.ProductId);
+            if (quantity > product.Quantity)
+            {
+                throw new MarketException("Mahsulot soni yetarli emas");
+            }
+
             product.Quantity -= quantity;
             await _unitOfWork.Products.UpdateAsync(product);
             await _unitOfWork.SaveAsync();
@@ -66,7 +71,7 @@ public class ReceiptService : IReceiptService
             else
             {
                 var warehouseItemsForItem = warehouseItems.Where(i => i.ProductId == item.ProductId)
-                                                          .OrderByDescending(x => x.ModifiedDate);
+                                                          .OrderBy(x => x.IncomingPrice);
 
                 foreach (var wItem in warehouseItemsForItem)
                 {

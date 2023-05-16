@@ -215,6 +215,7 @@
                         Orientation="Horizontal">
                 <Button Padding="8,10"
                         Height="50"
+                        Margin="10,0"
                         x:Name="logout_btn"
                         Click="logout_btn_Click"
                         Background="#b51800"
@@ -228,12 +229,46 @@
                 </Button>
                 <Button Padding="8,10"
                         Height="50"
-                        Margin="30,0"
+                        Margin="20,0"
                         x:Name="setings"
                         Click="setings_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/assets/settings.png"/>
                         <TextBlock Text="Sozlamalar"
+                                   Margin="10,0"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <TextBox Width="310"
+                         Margin="5,8,25,8"
+                         IsReadOnly="True"
+                         x:Name="customer_name"
+                         Text="Noma'lum haridor"
+                         FontSize="16"
+                         Padding="5,7"
+                         Background="White">
+                    
+                </TextBox>
+                <Button Padding="8,10"
+                        Height="50"
+                        x:Name="customers"
+                        Click="loan_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/assets/users.png"/>
+                        <TextBlock Text="Haridorlar"
+                                   Margin="10,0"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                
+                <Button Padding="8,10"
+                        Height="50"
+                        Margin="15,0"
+                        x:Name="pay_loan"
+                        Click="customers_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/assets/users.png"/>
+                        <TextBlock Text="Nasiya to'lash"
                                    Margin="10,0"
                                    VerticalAlignment="Center"/>
                     </StackPanel>
@@ -469,8 +504,7 @@
                                 Height="80"
                                 Margin="5,0"
                                 x:Name="loan"
-                                Click="loan_Click"
-                                >
+                                Click="give_loan_Click">
                             <StackPanel>
                                 <Image Height="50" Source="/assets/debt.png"/>
                                 <TextBlock Text="Nasiya"/>

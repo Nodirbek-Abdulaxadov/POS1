@@ -90,7 +90,8 @@ public class CustomerService : ICustomerService
     {
         var dtoList = (await _unitOfWork.Customers.GetAllAsync())
             .Where(c => c.IsDeleted == false)
-            .Select(x => (CustomerViewDto)x);
+            .Select(x => (CustomerViewDto)x)
+            .OrderByDescending(i => i.AddedDate);
 
         if (!dtoList.Any())
         {

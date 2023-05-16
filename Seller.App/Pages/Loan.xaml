@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Seller.App.Pages"
         xmlns:vm="clr-namespace:Seller.App.ViewModels"
         mc:Ignorable="d"
-        Title="Haridorlar" Height="650" Width="1000"
+        Title="Haridor tanlash" Height="650" Width="1000"
         WindowStartupLocation="CenterScreen"
         MinWidth="1000">
 
@@ -61,7 +61,7 @@
                                                            FontSize="16"
                                                            Width="0.7*"
                                                            Binding="{Binding PhoneNumber}"/>
-                    <DataGridTemplateColumn Header="Harakatlar" Width="1.5*">
+                    <DataGridTemplateColumn Header="Tanlash" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -70,25 +70,12 @@
                                             Margin="10,0"
                                             BorderBrush="Transparent"
                                             BorderThickness="0"
-                                            Background="#3b82f6"
-                                            x:Name="pay">
+                                            Background="#66b032"
+                                            x:Name="select"
+                                            Click="select_Click">
                                         <StackPanel Orientation="Horizontal">
                                             <Image Source="/assets/pay_loan.png"/>
-                                            <TextBlock Text="To'lov qilish"
-                                                           Margin="10,0"
-                                                           VerticalAlignment="Center"/>
-                                        </StackPanel>
-                                    </Button>
-                                    <Button Padding="10, 5,2,5"
-                                            FontSize="15"
-                                            Margin="10,0"
-                                            BorderBrush="Transparent"
-                                            BorderThickness="0"
-                                            Background="#a855f7"
-                                            x:Name="add">
-                                        <StackPanel Orientation="Horizontal">
-                                            <Image Source="/assets/add_loan.png"/>
-                                            <TextBlock Text="Nasiya qo'shish"
+                                            <TextBlock Text="Tanlash"
                                                            Margin="10,0"
                                                            VerticalAlignment="Center"/>
                                         </StackPanel>

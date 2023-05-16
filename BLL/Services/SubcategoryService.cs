@@ -153,6 +153,7 @@ public class SubcategoryService : ISubcategoryService
                                                            return model;
                                                        }
                                                    })
+                                                   .OrderByDescending(i => i.ModifiedDate)
                                                    .ToList();
 
         if (dtoList.Count == 0)

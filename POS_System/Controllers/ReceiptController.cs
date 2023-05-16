@@ -55,7 +55,7 @@ namespace API.Controllers
 
                 Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metaData));
                 var json = JsonConvert.SerializeObject(list.Data, Formatting.Indented,
-                new JsonSerializerSettings
+                new JsonSerializerSettings  
                 {
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore
                 });

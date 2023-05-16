@@ -1,4 +1,5 @@
-﻿using BLL.Dtos.ProductDtos;
+﻿using BLL.Dtos.CustomerDtos;
+using BLL.Dtos.ProductDtos;
 using BLL.Dtos.TransactionDtos;
 using Seller.App.Components;
 using Seller.App.Models;
@@ -28,6 +29,7 @@ namespace Seller.App.Pages
     {
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
         DispatcherTimer dispatcherTimer2 = new DispatcherTimer();
+        CustomerViewDto customer;
 
         ProductAPIService? product;
         List<DProduct> productViews = new List<DProduct>();
@@ -62,6 +64,7 @@ namespace Seller.App.Pages
 
             vm = new TransactionViewModel();
             transactions_table.ItemsSource = vm.Transactions;
+            customer = new();
         }
 
         private void DispatcherTimer_Tick2(object? sender, EventArgs e)
@@ -133,7 +136,7 @@ namespace Seller.App.Pages
 
         private void remove_Click(object sender, RoutedEventArgs e)
         {
-            var item = transactions_table.SelectedItem as TransactionDto;
+            var item = transactions_table.SelectedItem as TransactionDto ?? new TransactionDto();
             vm.Transactions.Remove(item);
             SetTotalPrice();
         }
@@ -329,7 +332,7 @@ namespace Seller.App.Pages
         private void numbers_Click(object sender, RoutedEventArgs e)
         {
             var button = (Button)sender;
-            WriteNumberToTextbox(button.Content.ToString());
+            WriteNumberToTextbox(button.Content.ToString()??"");
         }
 
         private void WriteNumberToTextbox(string number)
@@ -408,14 +411,6 @@ namespace Seller.App.Pages
             }
         }
 
-        private void loan_Click(object sender, RoutedEventArgs e)
-        {
-            Loan loan = new Loan();
-            Application.Current.MainWindow.Opacity = 0.5;
-            loan.ShowDialog();
-            Application.Current.MainWindow.Opacity = 1;
-        }
-
         private void naqd_LostFocus(object sender, RoutedEventArgs e)
         {
             var textBox = (TextBox)sender;
@@ -447,6 +442,40 @@ namespace Seller.App.Pages
         private void naqd_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
+        }
+
+        //select customer
+        private void loan_Click(object sender, RoutedEventArgs e)
+        {
+            Loan loan = new Loan();
+            Application.Current.MainWindow.Opacity = 0.5;
+            loan.ShowDialog();
+            Application.Current.MainWindow.Opacity = 1;
+
+            if (!string.IsNullOrEmpty(loan.selectedCustomer.FullName))
+                customer = loan.selectedCustomer;
+                customer_name.Text = loan.selectedCustomer.FullName;
+
+            GC.SuppressFinalize(loan);
+        }
+
+
+        //pay for loan
+        private void customers_Click(object sender, RoutedEventArgs e)
+        {
+            Customers loan = new();
+            Application.Current.MainWindow.Opacity = 0.5;
+            loan.ShowDialog();
+            Application.Current.MainWindow.Opacity = 1;
+        }
+
+        //new loan give
+        private void give_loan_Click(object sender, RoutedEventArgs e)
+        {
+            LoanGive loan = new(customer);
+            Application.Current.MainWindow.Opacity = 0.5;
+            loan.ShowDialog();
+            Application.Current.MainWindow.Opacity = 1;
         }
     }
 }

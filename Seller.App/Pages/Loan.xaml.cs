@@ -20,6 +20,7 @@ namespace Seller.App.Pages
     {
         public CustomerViewModel viewModel;
         private List<CustomerViewDto> customerViewDtos = new List<CustomerViewDto>();
+        public CustomerViewDto? selectedCustomer;
 
         public Loan()
         {
@@ -28,7 +29,7 @@ namespace Seller.App.Pages
             viewModel = new CustomerViewModel();            
             customers_table.ItemsSource = viewModel.Customers;
             GetCustomerViews();
-            //Load();
+            selectedCustomer = new CustomerViewDto();
         }
 
         private void search_input_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
@@ -63,6 +64,8 @@ namespace Seller.App.Pages
             AddCustomer customer = new AddCustomer();
             customer.ShowDialog();
             GetCustomerViews();
+            selectedCustomer = customerViewDtos.Last();
+            this.Hide();
         }
 
         private void FillViewModel(List<CustomerViewDto> list)
@@ -72,6 +75,12 @@ namespace Seller.App.Pages
             {
                 viewModel.Customers.Add(item);
             }
+        }
+
+        private void select_Click(object sender, RoutedEventArgs e)
+        {
+            selectedCustomer = customers_table.SelectedItem as CustomerViewDto;
+            this.Hide();
         }
     }
 }

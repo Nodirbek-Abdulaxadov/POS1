@@ -121,6 +121,7 @@ public class CategoryService : ICategoryService
         var dtoList = (await _unitOfWork.Categories.GetAllAsync())
                                                    .Where(w => w.IsDeleted == false)
                                                    .Select(i => (CategoryViewDto)i)
+                                                   .OrderByDescending(i => i.ModifiedDate)
                                                    .ToList();
         if (dtoList.Count == 0)
         {

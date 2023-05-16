@@ -1,2 +1,0 @@
-2023-03-26 01:27:20.740 +05:00 [ERR] 
-Login failed! Incorrect phone number or password!

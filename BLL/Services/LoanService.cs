@@ -53,6 +53,7 @@ public class LoanService : ILoanService
     {
         var dtoList = (await _unitOfWork.Loans.GetAllAsync())
                                                    .Where(w => w.IsDeleted == false)
+                                                   .OrderByDescending(i => i.ModifiedDate)
                                                    .ToList();
 
         if (dtoList.Count == 0)

@@ -101,7 +101,8 @@ public class TransferService : ITransferService
     public async Task<PagedList<TransferDto>> GetPagedAsync(int pageNumber, int pageSize)
     {
         var list = (await _unitOfWork.Transfers.GetAllTransfers())
-                            .Select(t => (TransferDto)t);
+                            .Select(t => (TransferDto)t)
+                            .OrderByDescending(i => i.lastModified);
         if (!list.Any())
         {
             throw new MarketException("Empty list");

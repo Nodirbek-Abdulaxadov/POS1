@@ -1,0 +1,84 @@
+﻿<Window x:Class="Seller.App.Pages.Customers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Seller.App.Pages"
+        xmlns:vm="clr-namespace:Seller.App.ViewModels"
+        mc:Ignorable="d"
+        Title="Haridorlar" Height="650" Width="1000"
+        WindowStartupLocation="CenterScreen"
+        MinWidth="1000">
+
+    <Window.DataContext>
+        <vm:CustomerViewModel/>
+    </Window.DataContext>
+
+
+    <StackPanel Orientation="Vertical">
+        <Grid Margin="0,5,0,10">
+            <TextBlock Text="Haridorlar ro'yxati"
+                       FontSize="22"
+                       Margin="20,10"/>
+            <TextBox materialDesign:HintAssist.Hint="Qidirish" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="300" Margin="10"
+                     FontSize="16"
+                     x:Name="search_input"
+                     TextChanged="search_input_TextChanged"/>
+        </Grid>
+        <materialDesign:Card Grid.Row="1"
+                                 Margin="10,10"
+                             >
+            <DataGrid x:Name="customers_table"
+                      AutoGenerateColumns="False"
+                      CanUserAddRows="false"
+                      Background="#fff"
+                      CanUserDeleteRows="False"
+                      Height="530"
+                      IsReadOnly="True"
+                      ScrollViewer.CanContentScroll="True" 
+                      ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="Id"
+                                                           FontSize="16"
+                                                           Width="0.5*"
+                                                           Binding="{Binding Id}"/>
+                    <materialDesign:DataGridTextColumn Header="Ism Familiya"
+                                                           Binding="{Binding FullName}"
+                                                           FontSize="16"
+                                                           Width="1.4*"/>
+                    <materialDesign:DataGridTextColumn Header="Tel raqam"
+                                                           FontSize="16"
+                                                           Width="0.7*"
+                                                           Binding="{Binding PhoneNumber}"/>
+                    <DataGridTemplateColumn Header="Harakatlar" Width="0.7*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Padding="10, 5,2,5"
+                                            FontSize="15"
+                                            Margin="10,0"
+                                            BorderBrush="Transparent"
+                                            BorderThickness="0"
+                                            Background="#3b82f6"
+                                            x:Name="pay">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="/assets/pay_loan.png"/>
+                                            <TextBlock Text="To'lov qilish"
+                                                           Margin="10,0"
+                                                           VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </materialDesign:Card>
+    </StackPanel>
+</Window>
