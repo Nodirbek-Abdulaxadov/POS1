@@ -61,7 +61,7 @@ namespace Seller.App.Components {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Seller.App;component/components/loader.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Seller.App;V1.0.0.0;component/components/loader.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Components\Loader.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
